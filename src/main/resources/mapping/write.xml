@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sf.dao.UpdateMapper">
+    <update id="updateRMB" parameterMap="java.util.Map">
+		update user set userRMB=#{userRMB} where userName=#{userName}
+    </update>
+
+    <insert id="insertOrderTable" parameterType="com.sf.entity.OrderTableEntity">
+		insert into ordertable (OrderID,OrderuserName,OrderIgridsName,OrdergridsImg,OrderzongRMB,OrderStat,OrderTime,OrderAddr)
+		values(#{orderId}, #{orderUserName}, #{orderIgridsName}, #{ordergridsImg}, #{orderzongRMB}, #{orderStat}, #{orderTime}, #{orderAddr})
+    </insert>
+
+    <update id="setOrderStat" parameterMap="java.util.Map">
+        update ordertable set OrderStat=#{orderState} where OrderID=#{orderId}
+    </update>
+
+    <insert id="insertMessage" parameterType="com.sf.entity.MessageEntity">
+        insert into message(messageID,messagevideoID,messageuserID,messageuserName,message,messageTime,messageHand)
+        values(#{messageId}, #{messageVideoId}, #{messageUserId}, #{messageUserName}, #{message}, #{messageTime}, #{messageHand})
+    </insert>
+
+    <insert id="insertShoppingCart" parameterType="com.sf.entity.ShoppingCart;">
+        insert into shoppingcart(cartID,userName,shoopingID,shoopingName,shoopingImg,shoopingjiage)
+        values (#{cartId}, #{userName}, #{shoopingId}, #{shoopingName}, #{shoopingImg}, #{shoopingJiaGe})
+    </insert>
+
+    <insert id="insertForum" parameterType="com.sf.entity.ForumEntity">
+        insert into forum(forumID,forumBT,forummessage,forumuserName,forumTime,forumliebie,forumAmount,firumhand)
+        values (#{forumId}, #{forumBt}, #{forumMessage}, #{forumUserName}, #{forumTime}, #{forumLieBie}, #{forumAmount}, #{firumHand})
+    </insert>
+
+    <insert id="insertForumReply" parameterMap="com.sf.entity.ForumReplyEntity">
+        insert into forumreply (replyid,replyneirong,replytime,replyhand,replytieziid,replyname)
+        values (#{replyId}, #{replyNeiRong}, #{replyTime}, #{replyHand}, #{replyTieZiId}, #{replyName})
+    </insert>
+    
+    <insert id="registerUser" parameterMap="com.sf.entity.UserEntity">
+        insert into user(userID,userName,passWord,userPhone,userState,userEmial,userHand,userPaypassword)
+        values(#{userId}, #{userName}, #{passWord}, #{userPhone}, #{userState}, #{userEmial}, #{userHand}, #{userPaypassword})
+    </insert>
+    
+    <update id="updatePassword" parameterMap="java.util.Map">
+        update user set passWord=#{passWord} where userName=#{userName}
+    </update>
+
+    <update id="updateEmail" parameterMap="java.util.Map">
+        update user set userEmial=#{userEmial} where userName=#{userName}
+    </update>
+
+    <update id="updatePhone" parameterMap="java.util.Map">
+        update user set userPhone=#{userPhone} where userName=#{userName}
+    </update>
+
+    <update id="updatePayPassword" parameterMap="java.util.Map">
+        update user set userPaypassword=#{userPaypassword} where userName=#{userName}
+    </update>
+
+    <update id="updateUserHand" parameterMap="java.util.Map">
+        update user set userHand=#{userHand} where userName=#{userName}
+    </update>
+    
+    <update id="updateUserInfo" parameterType="com.sf.entity.UserEntity">
+        update user set userName = #{userName} , userMingzi = #{userMingzi} ,usersex = #{usersex} , passWord = #{passWord} , userAddress = #{userAddress} ,userPhone = #{userPhone} , userQQ = #{userQQ} , userEmial = #{userEmial}   where userID = #{userID}
+    </update>
+    
+    <update id="updateUserPartInfo" parameterType="com.sf.entity.UserEntity">
+        update user set userMingzi=#{userMingzi},userPhone=#{userPhone},userAddress=#{userAddress} where userName=#{userName}
+    </update>
+
+    <delete id="deleteShoppingCart" parameterType="int">
+        delete from shoppingcart where cartID = #{cardId}
+    </delete>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="autodetect">
+
+
+    <context:property-placeholder location="classpath:jdbc.properties" />
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverClassName}"></property>
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <!-- 最小连接池的大小 -->
+        <property name="minPoolSize" value="1"></property>
+        <!-- 最大 -->
+        <property name="maxPoolSize" value="5"></property>
+        <!-- 刚开始获取多少个链接 -->
+        <property name="initialPoolSize" value="3"></property>
+        <!-- 连接数不够的时候 获取多少条 -->
+        <property name="acquireIncrement" value="1"></property>
+
+        <!-- 连接池信息 当连接池中的连接用完时，C3P0一次性创建新连接的数目 --><!-- <property name="acquireIncrement" value="${c3p0.acquireIncrement}"
+			/> -->
+        <!-- 初始化时创建的连接数，应在minPoolSize与maxPoolSize之间取值。默认为3； -->  <!-- <property name="initialPoolSize" value="${c3p0.initialPoolSize}" /> -->
+        <!-- 最大空闲时间，超过空闲时间的连接将被丢弃。为0或负数则永不丢弃。默认为0； -->   <!-- <property name="maxIdleTime" value="${c3p0.maxIdleTime}" /> -->
+        <!-- 连接池中保留的最小连接数。默认为15 --><!-- <property name="minPoolSize" value="${c3p0.minPoolSize}" /> -->
+        <!-- 连接池中保留的最大连接数。默认为15； --><!-- <property name="maxPoolSize" value="${c3p0.maxPoolSize}" /> -->
+        <!-- JDBC的标准参数，用以控制数据源内加载的PreparedStatement数量。但由于预缓存的Statement属 于单个Connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素，如果maxStatements与
+            maxStatementsPerConnection均为0，则缓存被关闭。默认为0； -->
+        <!-- <property name="maxStatements" value="${c3p0.maxStatements}" /> -->
+        <!-- 连接池内单个连接所拥有的最大缓存Statement数。默认为0； -->
+        <!-- <property name="maxStatementsPerConnection" value="${c3p0.maxStatementsPerConnection}"/> -->
+
+    </bean>
+
+    <!-- 模板 -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg ref="dataSource"></constructor-arg>
+    </bean>
+
+</beans>

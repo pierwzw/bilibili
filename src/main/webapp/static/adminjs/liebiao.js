@@ -2,7 +2,7 @@ var localObj = window.location;
 
 var contextPath = localObj.pathname.split("/")[1];
 
-var basePath = localObj.protocol + "//" + localObj.host + "/" + contextPath;
+var basePath = localObj.protocol + "//" + localObj.host + "/";
 
 var server_context = basePath;
 // 这里为....获得地址 var dizhi=<%=request.getContextPath()%>;

@@ -58,19 +58,7 @@
             <url-pattern>*.html</url-pattern> 
     </servlet-mapping>
 
-
-	<!-- <servlet-mapping> <servlet-name >default </servlet-name > <url-pattern 
-		>*.js</url-pattern> </servlet-mapping > <servlet-mapping > <servlet-name 
-		>default </servlet-name > <url-pattern >*.css</url-pattern> </servlet-mapping 
-		> <servlet-mapping > <servlet-name >default </servlet-name > <url-pattern 
-		>*.htm</url-pattern> </servlet-mapping > <servlet-mapping > <servlet-name 
-		>default </servlet-name > <url-pattern >*.gif</url-pattern> </servlet-mapping 
-		> <servlet-mapping > <servlet-name >default </servlet-name > <url-pattern 
-		>*.png</url-pattern> </servlet-mapping > <servlet-mapping > <servlet-name 
-		>default </servlet-name > <url-pattern >*.jpg</url-pattern> </servlet-mapping 
-		> -->
-
-	<!-- 配置监听器 springcontext.xml -->
+	<!-- 配置监听器 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener
 		</listener-class>
@@ -78,10 +66,8 @@
 	<!-- 配置文件位置 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:springcontext.xml</param-value>
+		<param-value>classpath:spring-beans.xml</param-value>
 	</context-param>
-
-
 
 	<servlet>
 		<servlet-name>spring-mvc</servlet-name>
@@ -138,6 +124,5 @@
 		<!-- <welcome-file>/WEB-INF/web-jsp/shouye.jsp</welcome-file> -->
 		<welcome-file>one</welcome-file>
 	</welcome-file-list>
-
 
 </web-app>

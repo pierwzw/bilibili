@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sf.dao.QueryMapper">
+
+    <select id="queryUserByUserNameAndPassWord" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+        SELECT * FROM user WHERE userName = #{userName} and passWord = #{passWord}
+    </select>
+
+    <select id="queryUserByUserNameAndEmail" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+        SELECT * FROM user WHERE userName = #{userName} and userEmial = #{userEmial}
+    </select>
+
+    <select id="queryUserByUserNameAndPhone" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+        SELECT * FROM user WHERE userName = #{userName} and userPhone = #{userPhone}
+    </select>
+
+    <select id="queryUserByUserNameAndPayPassword" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+        SELECT * FROM user WHERE userName = #{userName} and userPaypassword = #{userPaypassword}
+    </select>
+
+    <select id="queryUserByUserNameAndUserHand" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+        SELECT * FROM user WHERE userName = #{userName} and userHand = #{userHand}
+    </select>
+
+    <select id="queryUserByUserName" parameterMap="java.util.Map" resultType="java.util.List">
+        SELECT * FROM user WHERE userName = #{userName}
+    </select>
+
+    <select id="queryVideoByCategory" parameterType="java.lang.String" resultType="java.util.List">
+        select * from video where videocAtegory=#{videoCategory} order by rand() limit 8
+    </select>
+
+    <select id="queryVideoLimit" parameterType="int" resultType="java.util.List">
+        select * from video order by rand() limit #{limit}
+    </select>
+    
+    <select id="queryMessageByMessageVideoId" parameterType="java.lang.String" resultType="java.util.List">
+        select * from message WHERE messagevideoID=#{messageVideoId} order by STR_TO_DATE(messageTime,'%m/%d/%Y %h:%i:%s %p') desc
+    </select>
+    
+    <select id="queryUserPagination" parameterType="int" resultType="java.util.List">
+        SELECT * FROM user LIMIT #{startPage},15
+    </select>
+    
+    <select id="queryUserByUserMingzi" parameterType="java.lang.String" resultType="java.util.List">
+        select * from user where userMingzi LIKE #{userMoHu}
+    </select>
+    
+    <select id="queryUserByPhone" parameterType="java.lang.String" resultType="java.util.List">
+        select * from user where userPhone LIKE #{userPhone} order by rand() limit 3
+    </select>
+    
+    <select id="queryUserByUserId" parameterType="java.lang.String" resultType="java.util.List">
+        select * from user where userID=#{userId}
+    </select>
+
+    <select id="queryUserByUserState" parameterType="java.lang.String" resultType="java.util.List">
+        select * from user where userState=#{userState}
+    </select>
+    
+    <select id="queryVideoPagination" parameterMap="java.util.Map" resultType="java.util.List">
+        SELECT * FROM video WHERE videocAtegory = #{videoCategory} LIMIT #{startPage},#{numPerPage}
+    </select>
+
+    <select id="queryVideoNum" resultType="int">
+        select count(*) from video
+    </select>
+
+    <select id="queryGrids" resultType="java.util.List">
+        select * from grids
+    </select>
+
+    <select id="queryGridsByGridsId" parameterType="java.lang.String" resultType="java.util.List">
+        select * from grids where gridsID = #{gridsId}
+    </select>
+
+    <select id="queryShoppingCartByUserName" parameterType="java.lang.String" resultType="java.util.List">
+        select * from shoppingcart where userName = #{userName}
+    </select>
+    
+    <select id="queryOrderTableByUserName" parameterType="java.lang.String" resultType="java.util.List">
+        select * from ordertable where OrderuserName=#{userName}
+    </select>
+
+    <select id="queryOrderTable" resultType="java.util.List">
+        select * from ordertable
+    </select>
+
+    <select id="queryOrderTableByOrderState" parameterType="java.lang.String" resultType="java.util.List">
+        select * from ordertable where orderStat=#{orderState}
+    </select>
+
+    <select id="queryOrderTableByOrderIdAndOrderState" parameterMap="java.util.Map" resultType="java.util.List">
+        select * from ordertable where orderId = #{orderId} and orderStat=#{orderStat}
+    </select>
+    
+    <select id="queryOrderTableCount" resultType="int">
+        SELECT count(*) FROM ordertable
+    </select>
+
+    <select id="queryForumByForumLieBie" parameterType="java.lang.String" resultType="java.util.List">
+        select * from forum where forumliebie = #{forumLieBie} Order By forumTime Desc
+    </select>
+
+    <select id="queryForumByForumId" parameterType="java.lang.String" resultType="java.util.List">
+        select * from forum where forumID = #{forumID} Order By forumTime Desc
+    </select>
+
+    <select id="queryUserCount" resultType="int">
+        SELECT count(*) FROM user
+    </select>
+
+    <select id="queryForumReplyByForumReplyId" parameterType="java.lang.String" resultType="java.util.List">
+        select * from forumreply where replytieziid = #{replytieziid} Order By replytime Desc
+    </select>
+
+</mapper>
