@@ -47,7 +47,7 @@ $(document)
 															html += "<a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "'><img src='"
 																	+ server_context
 																	+ m.videoImage
@@ -60,14 +60,14 @@ $(document)
 															html += "<h5><a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "' class='title' >"
 																	+ m.videoName
 																	+ "</a></h5>";
 															html += "<p class='author'><a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "' class='author'>时长 :"
 																	+ m.videoTime
 																	+ "</a></p>";
@@ -147,7 +147,7 @@ $("#next")
 																html += "<a href='video.sf?dizhi="
 																		+ m.videoAddress
 																		+ "&shipingID="
-																		+ m.videoID
+																		+ m.videoId
 																		+ "'><img src='"
 																		+ server_context
 																		+ m.videoImage
@@ -160,14 +160,14 @@ $("#next")
 																html += "<h5><a href='video.sf?dizhi="
 																		+ m.videoAddress
 																		+ "&shipingID="
-																		+ m.videoID
+																		+ m.videoId
 																		+ "' class='title'>"
 																		+ m.videoName
 																		+ "</a></h5>";
 																html += "<p class='author'><a href='video.sf?dizhi="
 																		+ m.videoAddress
 																		+ "&shipingID="
-																		+ m.videoID
+																		+ m.videoId
 																		+ "' class='author'>时长 :"
 																		+ m.videoTime
 																		+ "</a></p>";
@@ -242,7 +242,7 @@ $("#up")
 																html += "<a href='video.sf?dizhi="
 																		+ m.videoAddress
 																		+ "&shipingID="
-																		+ m.videoID
+																		+ m.videoId
 																		+ "'><img src='"
 																		+ server_context
 																		+ m.videoImage
@@ -255,14 +255,14 @@ $("#up")
 																html += "<h5><a href='video.sf?dizhi="
 																		+ m.videoAddress
 																		+ "&shipingID="
-																		+ m.videoID
+																		+ m.videoId
 																		+ "' class='title'>"
 																		+ m.videoName
 																		+ "</a></h5>";
 																html += "<p class='author'><a href='video.sf?dizhi="
 																		+ m.videoAddress
 																		+ "&shipingID="
-																		+ m.videoID
+																		+ m.videoId
 																		+ "' class='author'>时长 :"
 																		+ m.videoTime
 																		+ "</a></p>";
@@ -334,7 +334,7 @@ $("#wei")
 															html += "<a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "'><img src='"
 																	+ server_context
 																	+ m.videoImage
@@ -347,14 +347,14 @@ $("#wei")
 															html += "<h5><a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "' class='title'>"
 																	+ m.videoName
 																	+ "</a></h5>";
 															html += "<p class='author'><a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "' class='author'>时长 :"
 																	+ m.videoTime
 																	+ "</a></p>";
@@ -415,7 +415,7 @@ $("#shou")
 															html += "<a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "'><img src='"
 																	+ server_context
 																	+ m.videoImage
@@ -428,14 +428,14 @@ $("#shou")
 															html += "<h5><a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "' class='title'>"
 																	+ m.videoName
 																	+ "</a></h5>";
 															html += "<p class='author'><a href='video.sf?dizhi="
 																	+ m.videoAddress
 																	+ "&shipingID="
-																	+ m.videoID
+																	+ m.videoId
 																	+ "' class='author'>时长 :"
 																	+ m.videoTime
 																	+ "</a></p>";
@@ -517,7 +517,7 @@ $("#tiaozhuan")
 																	html += "<a href='video.sf?dizhi="
 																			+ m.videoAddress
 																			+ "&shipingID="
-																			+ m.videoID
+																			+ m.videoId
 																			+ "'><img src='"
 																			+ server_context
 																			+ m.videoImage
@@ -530,14 +530,14 @@ $("#tiaozhuan")
 																	html += "<h5><a href='video.sf?dizhi="
 																			+ m.videoAddress
 																			+ "&shipingID="
-																			+ m.videoID
+																			+ m.videoId
 																			+ "' class='title'>"
 																			+ m.videoName
 																			+ "</a></h5>";
 																	html += "<p class='author'><a href='video.sf?dizhi="
 																			+ m.videoAddress
 																			+ "&shipingID="
-																			+ m.videoID
+																			+ m.videoId
 																			+ "' class='author'>时长 :"
 																			+ m.videoTime
 																			+ "</a></p>";

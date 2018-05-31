@@ -1,6 +1,6 @@
 package com.sf.service;
 
-import com.sf.entity.ordertableEntity;
+import com.sf.entity.OrderTableEntity;
 
 public interface LoginService {
 	public boolean loginuser(String userName,String passWord);
@@ -34,7 +34,7 @@ public interface LoginService {
 	 * @return
 	 */
 	
-	public boolean ordertable(ordertableEntity ordertable);
+	public boolean ordertable(OrderTableEntity ordertable);
 	
 	
 	

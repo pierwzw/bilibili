@@ -1,20 +1,12 @@
 package com.sf.service.impl;
 
-import java.util.List;
-
+import com.sf.dao.impl.UserListDaoImpl;
+import com.sf.entity.*;
+import com.sf.service.UserListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sf.dao.impl.UserListDaoImpl;
-import com.sf.entity.ShoppingCart;
-import com.sf.entity.forumEntity;
-import com.sf.entity.forumreplyEntity;
-import com.sf.entity.gridsEntity;
-import com.sf.entity.messageEntity;
-import com.sf.entity.ordertableEntity;
-import com.sf.entity.userEntity;
-import com.sf.entity.videoEntity;
-import com.sf.service.UserListService;
+import java.util.List;
 
 @Service
 public class UserListServiceImpl implements UserListService {
@@ -22,71 +14,71 @@ public class UserListServiceImpl implements UserListService {
 	@Autowired
 	UserListDaoImpl userListDaoImpl;
 	
-	public userEntity userlist(String userName) {
-		userEntity user=userListDaoImpl.userlist(userName);
+	public UserEntity userlist(String userName) {
+		UserEntity user=userListDaoImpl.userlist(userName);
 		return user;
 	}
 
 	@Override
-	public List<videoEntity> videolist(String videocAtegory) {
-		List<videoEntity> list=userListDaoImpl.videolist(videocAtegory);
+	public List<VideoEntity> videolist(String videocAtegory) {
+		List<VideoEntity> list=userListDaoImpl.videolist(videocAtegory);
 		return list;
 	}
 
 	@Override
-	public List<videoEntity> videolistimit7() {
-		List<videoEntity> list = userListDaoImpl.videolistimit7();
+	public List<VideoEntity> videolistimit7() {
+		List<VideoEntity> list = userListDaoImpl.videolistimit7();
 		return list;
 	}
 
 	@Override
-	public List<videoEntity> videolistimit5MAD() {
-		List<videoEntity> list = userListDaoImpl.videolistimit5MAD();
+	public List<VideoEntity> videolistimit5MAD() {
+		List<VideoEntity> list = userListDaoImpl.videolistimit5MAD();
 		return list;
 	}
 
 	@Override
-	public List<messageEntity> messagelist(String videoID) {
-		List<messageEntity>  list= null;
-		list=userListDaoImpl.messagelist(videoID);
+	public List<MessageEntity> messagelist(String videoId) {
+		List<MessageEntity>  list= null;
+		list=userListDaoImpl.messagelist(videoId);
 		return list;
 	}
 
 	@Override
-	public List<userEntity> userlistpage(int pageInt) {
-		List<userEntity>  list= null;
+	public List<UserEntity> userlistpage(int pageInt) {
+		List<UserEntity>  list= null;
 		list = userListDaoImpl.userlistpage(pageInt);
 		return list;
 	}
 
 	@Override
-	public List<userEntity> listmohu(String usermohu) {
-		List<userEntity> list = userListDaoImpl.listmohu(usermohu);
+	public List<UserEntity> listmohu(String usermohu) {
+		List<UserEntity> list = userListDaoImpl.listmohu(usermohu);
 		return list;
 	}
 
 	@Override
-	public List<userEntity> userPhone(String userPhone) {
-		List<userEntity> list = userListDaoImpl.userPhone(userPhone);
+	public List<UserEntity> userPhone(String userPhone) {
+		List<UserEntity> list = userListDaoImpl.userPhone(userPhone);
 		return list;
 	}
 
 	@Override
-	public List<userEntity> userID(String userID) {
+	public List<UserEntity> userID(String userID) {
 		
-		List<userEntity> list = userListDaoImpl.userID(userID);
+		List<UserEntity> list = userListDaoImpl.userID(userID);
 		return list;
 	}
 
 	@Override
-	public List<userEntity> xiaoheiwu(String userStat) {
-		List<userEntity> user=userListDaoImpl.xiaoheiwu(userStat);
+	public List<UserEntity> xiaoheiwu(String userStat) {
+		List<UserEntity> user=userListDaoImpl.xiaoheiwu(userStat);
 		return user;
 	}
 
 	@Override
-	public List<videoEntity> Pagevideolist(String State, int dangqianye,int meiyexianshiduoshaoge) {
-		List<videoEntity> list = userListDaoImpl.Pagevideolist(State, dangqianye,meiyexianshiduoshaoge);
+	public List<VideoEntity> Pagevideolist(String State, int dangqianye,int meiyexianshiduoshaoge) {
+		List<VideoEntity> list = userListDaoImpl.Pagevideolist(State, dangqianye,meiyexianshiduoshaoge);
 		return list;
 	}
 
@@ -97,20 +89,20 @@ public class UserListServiceImpl implements UserListService {
 	}
 
 	@Override
-	public List<gridsEntity> gridslist() {
-		List<gridsEntity> gridslist = userListDaoImpl.gridslist();
+	public List<GridsEntity> gridslist() {
+		List<GridsEntity> gridslist = userListDaoImpl.gridslist();
 		return gridslist;
 	}
 
 	@Override
-	public gridsEntity gridsIDlist(String gridsID) {
-		gridsEntity gridslist = userListDaoImpl.gridsIDlist(gridsID);
+	public GridsEntity gridsIDlist(String gridsID) {
+		GridsEntity gridslist = userListDaoImpl.gridsIDlist(gridsID);
 		return gridslist;
 	}
 
 	@Override
-	public List<userEntity> userlistUserName(String userName) {
-		List<userEntity> user = userListDaoImpl.userlistUserName(userName);
+	public List<UserEntity> userlistUserName(String userName) {
+		List<UserEntity> user = userListDaoImpl.userlistUserName(userName);
 		return user;
 	}
 
@@ -121,26 +113,26 @@ public class UserListServiceImpl implements UserListService {
 	}
 
 	@Override
-	public List<videoEntity> videolistimit6MAD() {
-		List<videoEntity> list = userListDaoImpl.videolistimit6MAD();
+	public List<VideoEntity> videolistimit6MAD() {
+		List<VideoEntity> list = userListDaoImpl.videolistimit6MAD();
 		return list;
 	}
 
 	@Override
-	public List<ordertableEntity> ordertable(String userName) {
-		List<ordertableEntity> ordertable = userListDaoImpl.ordertable(userName);
+	public List<OrderTableEntity> ordertable(String userName) {
+		List<OrderTableEntity> ordertable = userListDaoImpl.ordertable(userName);
 		return ordertable;
 	}
 
 	@Override
-	public List<ordertableEntity> ordertablelist() {
-		List<ordertableEntity> ordertable = userListDaoImpl.ordertablelist();
+	public List<OrderTableEntity> ordertablelist() {
+		List<OrderTableEntity> ordertable = userListDaoImpl.ordertablelist();
 		return ordertable;
 	}
 
 	@Override
-	public List<ordertableEntity> orderStat(String orderStat) {
-		List<ordertableEntity> ordertable = userListDaoImpl.orderStat(orderStat);
+	public List<OrderTableEntity> orderStat(String orderStat) {
+		List<OrderTableEntity> ordertable = userListDaoImpl.orderStat(orderStat);
 		return ordertable;
 	}
 
@@ -151,14 +143,14 @@ public class UserListServiceImpl implements UserListService {
 	}
 
 	@Override
-	public List<forumEntity> forumEnt(String forumliebie) {
-	List<forumEntity>	forumEnt =  userListDaoImpl.forumEnt(forumliebie);
+	public List<ForumEntity> forumEnt(String forumliebie) {
+	List<ForumEntity>	forumEnt =  userListDaoImpl.forumEnt(forumliebie);
 		return forumEnt;
 	}
 
 	@Override
-	public forumEntity forumentitymmp(String forumID) {
-		forumEntity user =	userListDaoImpl.forumentitymmp(forumID);
+	public ForumEntity forumentitymmp(String forumID) {
+		ForumEntity user =	userListDaoImpl.forumentitymmp(forumID);
 		return user;
 	}
 
@@ -169,8 +161,8 @@ public class UserListServiceImpl implements UserListService {
 	}
 
 	@Override
-	public List<forumreplyEntity> forumreply(String forumreplyID) {
-		List<forumreplyEntity> forumre =userListDaoImpl.forumreply(forumreplyID);
+	public List<ForumReplyEntity> forumreply(String forumreplyID) {
+		List<ForumReplyEntity> forumre =userListDaoImpl.forumreply(forumreplyID);
 		return forumre;
 	}
 

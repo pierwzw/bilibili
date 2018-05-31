@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.sf.dao.Update_login_password_Dao;
 import com.sf.db.Data_jdbcTemplate;
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 
 @Component
 public class Update_login_password_Impl implements Update_login_password_Dao {
@@ -99,7 +99,7 @@ public class Update_login_password_Impl implements Update_login_password_Dao {
 			}
 
 	@Override
-	public int Update_user(userEntity user) {
+	public int Update_user(UserEntity user) {
 		
 		//update user set userName = "admin" , 
 		//userMingzi = "佘峰T" ,usersex = "男" , 
@@ -118,7 +118,7 @@ public class Update_login_password_Impl implements Update_login_password_Dao {
 		System.out.println(user.getUserName());*/
 		
 		String sql="update  user set userName = ? , userMingzi = ? ,usersex = ? , passWord = ? , userAddress = ? ,userPhone = ? , userQQ = ? , userEmial = ?   where userID = ?";
-		int bl = jdbcTemplate.getJdbcTemplate().update(sql,new Object[]{user.getUserName(),user.getUserMingzi(),user.getUsersex(),user.getPassWord(),user.getUserAddress(),user.getUserPhone(),user.getUserQQ(),user.getUserEmial(),user.getUserID()});
+		int bl = jdbcTemplate.getJdbcTemplate().update(sql,new Object[]{user.getUserName(),user.getUserMingzi(),user.getUserSex(),user.getPassWord(),user.getUserAddress(),user.getUserPhone(),user.getUserQQ(),user.getUserEmial(),user.getUserId()});
 		return bl;
 	}
 

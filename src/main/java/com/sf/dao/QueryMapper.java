@@ -19,7 +19,7 @@ public interface QueryMapper {
     List<UserEntity> queryUserByUserName(String userName);
     List<VideoEntity> queryVideoByCategory(String videoCategory);
     List<VideoEntity> queryVideoLimit(int limit);
-    List<MessageEntity> queryMessageByMessageVideoId(String messageVideoId);
+    List<MessageEntity> queryMessageByMessagevideoId(String messagevideoId);
     List<UserEntity> queryUserPagination(int startPage);
     List<UserEntity> queryUserByUserMingzi(String userMoHu);
     List<UserEntity> queryUserByPhone(String userPhone);

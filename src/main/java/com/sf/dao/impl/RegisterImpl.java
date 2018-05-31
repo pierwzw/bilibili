@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.sf.dao.RegisterDao;
 import com.sf.db.Data_jdbcTemplate;
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 
 @Component
 public class RegisterImpl implements RegisterDao {
@@ -15,7 +15,7 @@ public class RegisterImpl implements RegisterDao {
 	
 	
 	
-	public int Register(userEntity user) {
+	public int Register(UserEntity user) {
 		//默认为0
 		int register=0;
 		//SELECT count(*) FROM user WHERE userName="admin" and `passWord`="123321aaa";
@@ -27,7 +27,7 @@ public class RegisterImpl implements RegisterDao {
 			}else{
 				//开始注册
 				String chaxunSql="insert into user(userID,userName,passWord,userPhone,userState,userEmial,userHand,userPaypassword) values(?,?,?,?,?,?,?,?)";
-				register=jdbcTemplate.getJdbcTemplate().update(chaxunSql,new Object[]{user.getUserID(),user.getUserName(),user.getPassWord(),user.getUserPhone(),user.getUserState(),user.getUserEmial(),user.getUserHand(),user.getUserPaypassword()});
+				register=jdbcTemplate.getJdbcTemplate().update(chaxunSql,new Object[]{user.getUserId(),user.getUserName(),user.getPassWord(),user.getUserPhone(),user.getUserState(),user.getUserEmial(),user.getUserHand(),user.getUserPayPassword()});
 				
 			}
 		return register;

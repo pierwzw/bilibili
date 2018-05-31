@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.sf.entity.messageEntity;
-import com.sf.entity.userEntity;
-import com.sf.entity.videoEntity;
+import com.sf.entity.MessageEntity;
+import com.sf.entity.UserEntity;
+import com.sf.entity.VideoEntity;
 import com.sf.service.impl.LoginServiceImpl;
 import com.sf.service.impl.MessageServiceImpl;
 import com.sf.service.impl.UserListServiceImpl;
@@ -57,9 +57,9 @@ public class MessageRequest {
 			// System.out.println(message);//得到留言内容
 			// System.out.println(shipingID);//得到视频ID
 			// String
-			userEntity user = userListServiceImpl.userlist(userName);
+			UserEntity user = userListServiceImpl.userlist(userName);
 			// 得到用户ID
-			String userID = user.getUserID();
+			String userID = user.getUserId();
 			String userHand = user.getUserHand();
 
 			// 将留言类容过滤掉 html 标签
@@ -68,13 +68,13 @@ public class MessageRequest {
 			if (message.length() < 150) {
 				
 				// new 一个用户实体
-				messageEntity messageent = new messageEntity();
+				MessageEntity messageent = new MessageEntity();
 				messageent.setMessage(message);
-				messageent.setMessageID(messageID);
+				messageent.setMessageId(messageID);
 				messageent.setMessageTime(dataTime);
-				messageent.setMessageuserID(userID);
-				messageent.setMessageuserName(userName);
-				messageent.setMessagevideoID(shipingID);
+				messageent.setMessageUserId(userID);
+				messageent.setMessageUserName(userName);
+				messageent.setMessagevideoId(shipingID);
 				messageent.setMessageHand(userHand);// 将用户留言头像地址存放的留言表
 				boolean bl = messageServiceImpl.message(messageent);
 				if (bl) {

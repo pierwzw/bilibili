@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 
 import com.sf.dao.impl.MessageImpl;
 import com.sf.entity.ShoppingCart;
-import com.sf.entity.forumEntity;
-import com.sf.entity.forumreplyEntity;
-import com.sf.entity.messageEntity;
+import com.sf.entity.ForumEntity;
+import com.sf.entity.ForumReplyEntity;
+import com.sf.entity.MessageEntity;
 import com.sf.service.MessageService;
 
 @Service
@@ -16,7 +16,7 @@ public class MessageServiceImpl implements MessageService {
 	@Autowired
 	MessageImpl messageImpl;
 	
-	public boolean message(messageEntity message) {
+	public boolean message(MessageEntity message) {
 		int bl = messageImpl.message(message);
 			if(bl>0){
 				return true;
@@ -34,7 +34,7 @@ public class MessageServiceImpl implements MessageService {
 	}
 
 	@Override
-	public boolean forumfuck(forumEntity forument) {
+	public boolean forumfuck(ForumEntity forument) {
 		int bl = messageImpl.forumfuck(forument);
 		if(bl>0){
 			return true;
@@ -43,7 +43,7 @@ public class MessageServiceImpl implements MessageService {
 	}
 
 	@Override
-	public boolean forumreply(forumreplyEntity forumreply) {
+	public boolean forumreply(ForumReplyEntity forumreply) {
 		int bl = messageImpl.forumreply(forumreply);
 		if(bl>0){
 			return true;

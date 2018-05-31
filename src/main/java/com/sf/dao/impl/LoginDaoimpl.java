@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.sf.dao.LoginDao;
 import com.sf.db.Data_jdbcTemplate;
-import com.sf.entity.ordertableEntity;
+import com.sf.entity.OrderTableEntity;
 
 @Component
 public class LoginDaoimpl implements LoginDao {
@@ -51,9 +51,9 @@ public class LoginDaoimpl implements LoginDao {
 	}
 
 	@Override
-	public int ordertable(ordertableEntity ordertable) {
+	public int ordertable(OrderTableEntity ordertable) {
 		String sql = "insert into ordertable (OrderID,OrderuserName,OrderIgridsName,OrdergridsImg,OrderzongRMB,OrderStat,OrderTime,OrderAddr) values(?,?,?,?,?,?,?,?)";
-		int num = jdbcTemplate.getJdbcTemplate().update(sql,new Object[]{ordertable.getOrderID(),ordertable.getOrderuserName(),ordertable.getOrderIgridsName(),ordertable.getOrdergridsImg(),ordertable.getOrderzongRMB(),ordertable.getOrderStat(),ordertable.getOrderTime(),ordertable.getOrderAddr()});
+		int num = jdbcTemplate.getJdbcTemplate().update(sql,new Object[]{ordertable.getOrderId(),ordertable.getOrderUserName(),ordertable.getOrderGridsName(),ordertable.getOrderGridsImg(),ordertable.getOrderTotalPrice(),ordertable.getOrderState(),ordertable.getOrderTime(),ordertable.getOrderAddr()});
 		return num;
 	}
 

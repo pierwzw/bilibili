@@ -17,8 +17,8 @@
     </update>
 
     <insert id="insertMessage" parameterType="com.sf.entity.MessageEntity">
-        insert into message(messageID,messagevideoID,messageuserID,messageuserName,message,messageTime,messageHand)
-        values(#{messageId}, #{messageVideoId}, #{messageUserId}, #{messageUserName}, #{message}, #{messageTime}, #{messageHand})
+        insert into message(messageID,messagevideoId,messageuserID,messageuserName,message,messageTime,messageHand)
+        values(#{messageId}, #{messagevideoId}, #{messageUserId}, #{messageUserName}, #{message}, #{messageTime}, #{messageHand})
     </insert>
 
     <insert id="insertShoppingCart" parameterType="com.sf.entity.ShoppingCart;">

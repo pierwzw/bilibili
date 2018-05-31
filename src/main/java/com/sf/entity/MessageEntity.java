@@ -19,12 +19,12 @@ public class MessageEntity {
 		this.messageId = messageId;
 	}
 
-	public String getMessageVideoId() {
+	public String getMessagevideoId() {
 		return messageVideoId;
 	}
 
-	public void setMessageVideoId(String messageVideoId) {
-		this.messageVideoId = messageVideoId;
+	public void setMessagevideoId(String messagevideoId) {
+		this.messageVideoId = messagevideoId;
 	}
 
 	public String getMessageUserId() {

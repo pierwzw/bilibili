@@ -13,11 +13,11 @@ public class VideoEntity {
 	private String videoState;//视频状态
 	private String videoCategory;//视频类别
 
-	public String getVideoId() {
+	public String getvideoId() {
 		return videoId;
 	}
 
-	public void setVideoId(String videoId) {
+	public void setvideoId(String videoId) {
 		this.videoId = videoId;
 	}
 
@@ -45,11 +45,11 @@ public class VideoEntity {
 		this.videoAddress = videoAddress;
 	}
 
-	public String getVideoLookTime() {
+	public String getvideoLookTime() {
 		return videoLookTime;
 	}
 
-	public void setVideoLookTime(String videoLookTime) {
+	public void setvideoLookTime(String videoLookTime) {
 		this.videoLookTime = videoLookTime;
 	}
 

@@ -3,13 +3,13 @@ package com.sf.service;
 import java.util.List;
 
 import com.sf.entity.ShoppingCart;
-import com.sf.entity.forumEntity;
-import com.sf.entity.forumreplyEntity;
-import com.sf.entity.gridsEntity;
-import com.sf.entity.messageEntity;
-import com.sf.entity.ordertableEntity;
-import com.sf.entity.userEntity;
-import com.sf.entity.videoEntity;
+import com.sf.entity.ForumEntity;
+import com.sf.entity.ForumReplyEntity;
+import com.sf.entity.GridsEntity;
+import com.sf.entity.MessageEntity;
+import com.sf.entity.OrderTableEntity;
+import com.sf.entity.UserEntity;
+import com.sf.entity.VideoEntity;
 
 public interface UserListService {
 	
@@ -17,12 +17,12 @@ public interface UserListService {
 	 *  根据用户的名字 查询出用户的所有信息
 	 * @return
 	 */
-	public userEntity userlist(String  userName);
+	public UserEntity userlist(String  userName);
 	/**
 	 *  将video 全部信息全部查询出来
 	 * 
 	 */
-	public List<userEntity> userlistUserName(String userName);
+	public List<UserEntity> userlistUserName(String userName);
 	
 	
 	/**
@@ -30,46 +30,46 @@ public interface UserListService {
 	 * @param forumID
 	 * @return
 	 */
-	public forumEntity forumentitymmp(String forumID);
+	public ForumEntity forumentitymmp(String forumID);
 	
 	/**
 	 * 根据ID查询出当前视频的所有留言
 	 * @return
 	 */
-	public List<forumreplyEntity> forumreply(String forumreplyID);
+	public List<ForumReplyEntity> forumreply(String forumreplyID);
 	
 	/**
 	 *  将video 全部信息全部查询出来
 	 * 
 	 */
-	public List<videoEntity> videolist(String videocAtegory);
+	public List<VideoEntity> videolist(String videocAtegory);
 
 	
 	/**
 	 * 随机在video 里面查询出5条记录
 	 * @return
 	 */
-	public List<videoEntity> videolistimit7();
+	public List<VideoEntity> videolistimit7();
 	
 	/**
 	 * 随机在video 里面查询出6条记录
 	 * @return
 	 */
-	public List<videoEntity> videolistimit6MAD();
+	public List<VideoEntity> videolistimit6MAD();
 	
 	
 	/**
 	 * 随机在video 里面查询出5条记录
 	 * @return
 	 */
-	public List<videoEntity> videolistimit5MAD();
+	public List<VideoEntity> videolistimit5MAD();
 	
 	
 	/**
 	 * 根据ID查询出当前视频的所有留言
 	 * @return
 	 */
-	public List<messageEntity> messagelist(String videoID);
+	public List<MessageEntity> messagelist(String videoId);
 	
 	
 	
@@ -77,7 +77,7 @@ public interface UserListService {
 	 * 将用户表里面所有的用户只查询出15条. 到时候方便分页
 	 * @return
 	 */
-	public List<userEntity> userlistpage(int pageInt);
+	public List<UserEntity> userlistpage(int pageInt);
 
 	
 	/**
@@ -85,7 +85,7 @@ public interface UserListService {
 	 * @return
 	 * 
 	 */
-	public List<userEntity> listmohu(String usermohu);
+	public List<UserEntity> listmohu(String usermohu);
 	
 	
 	/**
@@ -93,7 +93,7 @@ public interface UserListService {
 	 * @return
 	 * 
 	 */
-	public List<userEntity> userPhone(String userPhone);
+	public List<UserEntity> userPhone(String userPhone);
 	
 	
 	/**
@@ -101,13 +101,13 @@ public interface UserListService {
 	 * @return
 	 * 
 	 */
-	public List<userEntity> userID(String userID);
+	public List<UserEntity> userID(String userID);
 
 	/**
 	 *  根据用户的状态 查询出用户的所有信息
 	 * @return
 	 */
-	public List<userEntity> xiaoheiwu(String  userStat);
+	public List<UserEntity> xiaoheiwu(String  userStat);
 	
 	
 	/**
@@ -117,7 +117,7 @@ public interface UserListService {
 	 * @param meiyexianshiduoshaoge 每页显示多少个视频
 	 * @return
 	 */
-	public List<videoEntity> Pagevideolist(String State,int dangqianye,int meiyexianshiduoshaoge);
+	public List<VideoEntity> Pagevideolist(String State,int dangqianye,int meiyexianshiduoshaoge);
 	
 	
 	/**
@@ -131,7 +131,7 @@ public interface UserListService {
 	 * 将商品全部信息查询出来
 	 * @return
 	 */
-	public List<gridsEntity> gridslist();
+	public List<GridsEntity> gridslist();
 	
 	
 	
@@ -140,7 +140,7 @@ public interface UserListService {
 	 * @param gridsID
 	 * @return
 	 */
-	public gridsEntity gridsIDlist(String gridsID);
+	public GridsEntity gridsIDlist(String gridsID);
 	
 	
 	/**
@@ -157,7 +157,7 @@ public interface UserListService {
 	 *  根据用户名查询出所有的订单
 	 * 
 	 */
-	public List<ordertableEntity> ordertable(String userName);
+	public List<OrderTableEntity> ordertable(String userName);
 	
 	
 	
@@ -166,7 +166,7 @@ public interface UserListService {
 	 *  查询出所有的订单
 	 * 
 	 */
-	public List<ordertableEntity> ordertablelist();
+	public List<OrderTableEntity> ordertablelist();
 	
 	
 	
@@ -175,7 +175,7 @@ public interface UserListService {
 	 *  查询出标记的订单
 	 * 
 	 */
-	public List<ordertableEntity> orderStat(String orderStat);
+	public List<OrderTableEntity> orderStat(String orderStat);
 	
 	
 
@@ -191,7 +191,7 @@ public interface UserListService {
 	 * @param forumliebie
 	 * @return
 	 */
-	public List<forumEntity> forumEnt(String forumliebie);
+	public List<ForumEntity> forumEnt(String forumliebie);
 	
 	
 	

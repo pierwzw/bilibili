@@ -54,7 +54,7 @@ public class UploadServlet extends HttpServlet {
 		
 		String userName=(String) request.getSession().getAttribute("userName");//得到当前登录用户的用户名
 		/*		UserListService sevice=new UserListServiceImpl();
-				userEntity user=sevice.userlist(userName);
+				UserEntity user=sevice.userlist(userName);
 				System.out.println(user.getUserHand());
 				
 		 */

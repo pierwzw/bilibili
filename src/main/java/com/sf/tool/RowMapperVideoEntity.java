@@ -3,23 +3,21 @@ package com.sf.tool;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.sf.entity.MessageEntity;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.sf.entity.messageEntity;
-import com.sf.entity.userEntity;
-
 //留言表
-public class RowMapperVideoEntity implements RowMapper<messageEntity>{
+public class RowMapperVideoEntity implements RowMapper<MessageEntity>{
 
 	@Override
-	public messageEntity mapRow(ResultSet arg0, int arg1) throws SQLException {
-		messageEntity message = new messageEntity();
+	public MessageEntity mapRow(ResultSet arg0, int arg1) throws SQLException {
+		MessageEntity message = new MessageEntity();
 		message.setMessage(arg0.getString("message"));
-		message.setMessageID(arg0.getString("messageID"));
+		message.setMessageId(arg0.getString("messageID"));
 		message.setMessageTime(arg0.getString("messageTime"));
-		message.setMessageuserID(arg0.getString("messageuserID"));
-		message.setMessageuserName(arg0.getString("messageuserName"));
-		message.setMessagevideoID(arg0.getString("messagevideoID"));
+		message.setMessageUserId(arg0.getString("messageuserID"));
+		message.setMessageUserName(arg0.getString("messageuserName"));
+		message.setMessagevideoId(arg0.getString("messagevideoId"));
 		message.setMessageHand(arg0.getString("messageHand"));
 		return message;
 	}

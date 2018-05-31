@@ -251,13 +251,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul>
 					<c:forEach items="${fuck }" var="fuck">
 						<li><a
-							href="video.sf?dizhi=${fuck.videoAddress}&shipingID=${fuck.videoID}">
+							href="video.sf?dizhi=${fuck.videoAddress}&shipingID=${fuck.videoId}">
 								<img src="<%=request.getContextPath()%>${fuck.videoImage}"
 								alt="#">
 								<div class="info">
 									<p class="title">${fuck.videoName }</p>
 									<p class="author">up主：admin</p>
-									<p class="play">播放：${fuck.videolookTime}</p>
+									<p class="play">播放：${fuck.videoLookTime}</p>
 								</div>
 						</a></li>
 					</c:forEach>
@@ -293,20 +293,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!-- 这里开始遍历 -->
 						<c:forEach items="${list}" var="list">
 							<li class="item"><a
-								href="video.sf?dizhi=${list.videoAddress}&shipingID=${list.videoID}"
+								href="video.sf?dizhi=${list.videoAddress}&shipingID=${list.videoId}"
 								class="img-link"> <img
 									src="<%=request.getContextPath()%>${list.videoImage}" alt="#">
 									<span class="mask"></span> <span class="time">${list.videoTime}</span>
 							</a>
 								<div class="img-info">
 									<a
-										href="video.sf?dizhi=${list.videoAddress}&shipingID=${list.videoID}">${list.videoName }</a>
+										href="video.sf?dizhi=${list.videoAddress}&shipingID=${list.videoId}">${list.videoName }</a>
 									<div class="btm">
 										<div class="user">
 											<i></i>admin
 										</div>
 										<div class="online">
-											<i></i>${list.videolookTime}</div>
+											<i></i>${list.videoLookTime}</div>
 									</div>
 								</div></li>
 						</c:forEach>
@@ -359,20 +359,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<c:forEach items="${list2}" var="list2">
 							<li class="item"><a
-								href="video.sf?dizhi=${list2.videoAddress}&shipingID=${list2.videoID}"
+								href="video.sf?dizhi=${list2.videoAddress}&shipingID=${list2.videoId}"
 								class="img-link"> <img
 									src="<%=request.getContextPath()%>${list2.videoImage}" alt="#">
 									<span class="mask"></span> <span class="time">${list2.videoTime}</span>
 							</a>
 								<div class="img-info">
 									<a
-										href="video.sf?dizhi=${list2.videoAddress}&shipingID=${list2.videoID}">${list2.videoName }</a>
+										href="video.sf?dizhi=${list2.videoAddress}&shipingID=${list2.videoId}">${list2.videoName }</a>
 									<div class="btm">
 										<div class="user">
 											<i></i>admin
 										</div>
 										<div class="online">
-											<i></i>${list2.videolookTime}</div>
+											<i></i>${list2.videoLookTime}</div>
 									</div>
 								</div></li>
 						</c:forEach>
@@ -425,20 +425,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<c:forEach items="${list3}" var="list3">
 							<li class="item"><a
-								href="video.sf?dizhi=${list3.videoAddress}&shipingID=${list3.videoID}"
+								href="video.sf?dizhi=${list3.videoAddress}&shipingID=${list3.videoId}"
 								class="img-link"> <img
 									src="<%=request.getContextPath()%>${list3.videoImage}" alt="#">
 									<span class="mask"></span> <span class="time">${list3.videoTime}</span>
 							</a>
 								<div class="img-info">
 									<a
-										href="video.sf?dizhi=${list3.videoAddress}&shipingID=${list3.videoID}">${list3.videoName }</a>
+										href="video.sf?dizhi=${list3.videoAddress}&shipingID=${list3.videoId}">${list3.videoName }</a>
 									<div class="btm">
 										<div class="user">
 											<i></i>admin
 										</div>
 										<div class="online">
-											<i></i>${list3.videolookTime}</div>
+											<i></i>${list3.videoLookTime}</div>
 									</div>
 								</div></li>
 						</c:forEach>

@@ -1,6 +1,6 @@
 package com.sf.dao;
 
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 
 public interface RegisterDao {
 	
@@ -11,5 +11,5 @@ public interface RegisterDao {
 	 * 如果没有 即可注册
 	 * @return
 	 */
-	public int Register(userEntity user );
+	public int Register(UserEntity user );
 }

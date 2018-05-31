@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 import com.sf.service.impl.RegisterServiceImpl;
 
 @Controller
@@ -20,8 +20,8 @@ public class T2 {
 	public String web3(){
 		
 		System.out.println("测试是否进入此方法");
-		userEntity user = new userEntity();
-		user.setUserID("1238");
+		UserEntity user = new UserEntity();
+		user.setUserId("1238");
 		user.setUserName("123123");
 		user.setUserMingzi("123123");
 		user.setUserState("1");

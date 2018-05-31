@@ -1,6 +1,6 @@
 package com.sf.dao;
 
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 
 public interface Update_login_password_Dao {
 	
@@ -71,7 +71,7 @@ public interface Update_login_password_Dao {
 	 * @param user
 	 * @return
 	 */
-	public int Update_user(userEntity user);
+	public int Update_user(UserEntity user);
 	
 	
 	/**

@@ -2,8 +2,8 @@ package com.sf.dao;
 
 import java.util.List;
 
-import com.sf.entity.ordertableEntity;
-import com.sf.entity.userEntity;
+import com.sf.entity.OrderTableEntity;
+import com.sf.entity.UserEntity;
 
 public interface LoginDao {
 		public int login(String userName,String passWord);
@@ -33,7 +33,7 @@ public interface LoginDao {
 		 * @return
 		 */
 		
-		public int ordertable(ordertableEntity ordertable);
+		public int ordertable(OrderTableEntity ordertable);
 		
 		
 		

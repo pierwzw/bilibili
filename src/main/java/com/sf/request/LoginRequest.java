@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.sf.entity.ordertableEntity;
-import com.sf.entity.userEntity;
+import com.sf.entity.OrderTableEntity;
+import com.sf.entity.UserEntity;
 import com.sf.service.impl.LoginServiceImpl;
 import com.sf.service.impl.UserListServiceImpl;
 import com.sf.tool.GetDataTime;
@@ -35,11 +35,11 @@ public class LoginRequest {
 	 boolean bl=	loginServiceImpl.loginuser(userName, passWord);
 	 if(bl){
 		 //将用户的全部信息查询出来
-		 userEntity list = userListServiceImpl.userlist(userName);
+		 UserEntity list = userListServiceImpl.userlist(userName);
 		 		//request.setAttribute("userlist", list);
 		 //成功
 		 	//将用户ID放到session里面
-		 	request.getSession().setAttribute("userID", list.getUserID());
+		 	request.getSession().setAttribute("userID", list.getUserId());
 		 	request.getSession().setAttribute("userName", userName);
 		 	request.getSession().setAttribute("userHand", list.getUserHand());
 		 	String mamaipi = "logoone.sf";
@@ -84,9 +84,9 @@ public class LoginRequest {
 		boolean bl = loginServiceImpl.paypassword(userName, pass);
 		if(bl){
 			//拿到数据库里面的全部金额
-			userEntity	user=userListServiceImpl.userlist(userName);
+			UserEntity	user=userListServiceImpl.userlist(userName);
 			//金额
-			String RMB=user.getUserRMB();
+			String RMB=user.getUserBalance();
 			int shangpingjiage= 0;
 			shangpingjiage=Integer.valueOf(zong).intValue();//商品价格
 			int sqljiage= 0;
@@ -105,13 +105,13 @@ public class LoginRequest {
 					//得到下单时间
 					String Time = GetDataTime.DQtime();
 					//将订单存到数据库
-					ordertableEntity ordertable = new ordertableEntity();
-						ordertable.setOrderID(GetUUID.getUUID());
-						ordertable.setOrderuserName(userName);
-						ordertable.setOrderIgridsName(shangpingmingzi);
-						ordertable.setOrdergridsImg(shangpingtupiao);
-						ordertable.setOrderzongRMB(zong);
-						ordertable.setOrderStat("1");
+					OrderTableEntity ordertable = new OrderTableEntity();
+						ordertable.setOrderId(GetUUID.getUUID());
+						ordertable.setOrderUserName(userName);
+						ordertable.setOrderGridsName(shangpingmingzi);
+						ordertable.setOrderGridsImg(shangpingtupiao);
+						ordertable.setOrderTotalPrice(zong);
+						ordertable.setOrderState("1");
 						ordertable.setOrderTime(Time);
 						ordertable.setOrderAddr(dizhi);
 						boolean yes= loginServiceImpl.ordertable(ordertable);
@@ -225,11 +225,11 @@ public class LoginRequest {
 				 String sb = "";
 				 if(bl){
 					 //将用户的全部信息查询出来
-					 userEntity list = userListServiceImpl.userlist(username);
+					 UserEntity list = userListServiceImpl.userlist(username);
 					 		request.setAttribute("登录成功", sb);
 					 //成功
 					 	//将用户ID放到session里面
-					 	request.getSession().setAttribute("userID", list.getUserID());
+					 	request.getSession().setAttribute("userID", list.getUserId());
 					 	request.getSession().setAttribute("userName", username);
 					 	request.getSession().setAttribute("userHand", list.getUserHand());
 					 }else{

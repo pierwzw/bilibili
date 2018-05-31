@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sf.dao.impl.LoginDaoimpl;
-import com.sf.entity.ordertableEntity;
+import com.sf.entity.OrderTableEntity;
 import com.sf.service.LoginService;
 
 @Service
@@ -40,7 +40,7 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	@Override
-	public boolean ordertable(ordertableEntity ordertable) {
+	public boolean ordertable(OrderTableEntity ordertable) {
 		int num = loginService.ordertable(ordertable);
 		if(num>0){
 			return true;

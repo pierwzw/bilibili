@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 import com.sf.service.impl.RegisterServiceImpl;
 import com.sf.tool.GetUUID;
 
@@ -19,16 +19,16 @@ public class RegisterRequest {
 	RegisterServiceImpl registerService;
 
 	@RequestMapping("register.sf")
-	public String web3(userEntity user, HttpServletRequest request,String yanzheng) {
+	public String web3(UserEntity user, HttpServletRequest request,String yanzheng) {
 		// System.out.println(user.getUserEmial());
 		// System.out.println("测试是否进入此方法");
 
 		// 设置一个默认的用户ID UUID
-		user.setUserID(GetUUID.getUUID());
+		user.setUserId(GetUUID.getUUID());
 		// 设置用户注册时 默认状态
 		user.setUserState("正常");// 状态为0为正常用户
 		// 设置注册用户的默认支付密码; (一开始忘记了)
-		user.setUserPaypassword("123456");
+		user.setUserPayPassword("123456");
 		// 设置注册用户的默认头像
 		user.setUserHand("/static/userHand_Top/upload/MyHand.png");
 

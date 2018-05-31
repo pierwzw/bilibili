@@ -8,12 +8,12 @@ import com.sf.entity.*;
  */
 public interface UpdateMapper {
     void updateRMB(String userName, String updateRMB);
-    void insertOrderTable(OrderTableEntity OrdertableEntity);
+    void insertOrderTable(OrderTableEntity OrderTableEntity);
     void changeOrderStatus(int orderId, int orderStat);
-    void insertMessage(MessageEntity messageEntity);
+    void insertMessage(MessageEntity MessageEntity);
     void insertShoppingCart(ShoppingCart shoppingCart);
-    void insertForum(ForumEntity forumEntity);
-    void insertForumReply(ForumReplyEntity forumreplyEntity);
+    void insertForum(ForumEntity ForumEntity);
+    void insertForumReply(ForumReplyEntity ForumReplyEntity);
     void registerUser(UserEntity user);
     void updatePassword(String userName, String passWord);
     void updateEmail(String userName, String userEmail);

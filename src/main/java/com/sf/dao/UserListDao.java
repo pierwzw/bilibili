@@ -2,16 +2,9 @@ package com.sf.dao;
 
 
 
-import java.util.List;
+import com.sf.entity.*;
 
-import com.sf.entity.ShoppingCart;
-import com.sf.entity.forumEntity;
-import com.sf.entity.forumreplyEntity;
-import com.sf.entity.gridsEntity;
-import com.sf.entity.messageEntity;
-import com.sf.entity.ordertableEntity;
-import com.sf.entity.userEntity;
-import com.sf.entity.videoEntity;
+import java.util.List;
 
 public interface UserListDao {
 	
@@ -19,20 +12,20 @@ public interface UserListDao {
 	 *  根据用户的名字 查询出用户的所有信息
 	 * @return
 	 */
-	public userEntity userlist(String  userName);
+	public UserEntity userlist(String  userName);
 	
 	/**
 	 * 根据ID查询出此条论坛的全部信息
 	 * @param forumID
 	 * @return
 	 */
-	public forumEntity forumentitymmp(String forumID);
+	public ForumEntity forumentitymmp(String forumID);
 	
 	/**
 	 *  将video 全部信息全部查询出来
 	 * 
 	 */
-	public List<userEntity> userlistUserName(String userName);
+	public List<UserEntity> userlistUserName(String userName);
 	
 	
 	
@@ -40,46 +33,46 @@ public interface UserListDao {
 	 *  将video 全部信息全部查询出来
 	 * 
 	 */
-	public List<videoEntity> videolist(String videocAtegory);
+	public List<VideoEntity> videolist(String videocAtegory);
 	
 	
 	/**
 	 * 随机在video 里面查询出5条记录
 	 * @return
 	 */
-	public List<videoEntity> videolistimit7();
+	public List<VideoEntity> videolistimit7();
 	
 	/**
 	 * 随机在video 里面查询出5条记录
 	 * @return
 	 */
-	public List<videoEntity> videolistimit5MAD();
+	public List<VideoEntity> videolistimit5MAD();
 	
 	/**
 	 * 随机在video 里面查询出6条记录
 	 * @return
 	 */
-	public List<videoEntity> videolistimit6MAD();
+	public List<VideoEntity> videolistimit6MAD();
 	
 	/**
 	 * 根据ID查询出当前视频的所有留言
 	 * @return
 	 */
-	public List<forumreplyEntity> forumreply(String forumreplyID);
+	public List<ForumReplyEntity> forumreply(String forumreplyID);
 	
 	
 	/**
 	 * 根据ID查询这条帖子所有的回复
 	 * @return
 	 */
-	public List<messageEntity> messagelist(String videoID);
+	public List<MessageEntity> messagelist(String videoId);
 	
 	
 	/**
 	 * 将用户表里面所有的用户只查询出15条. 到时候方便分页
 	 * @return
 	 */
-	public List<userEntity> userlistpage(int pageInt);
+	public List<UserEntity> userlistpage(int pageInt);
 	
 	
 	/**
@@ -87,14 +80,14 @@ public interface UserListDao {
 	 * @return
 	 * 
 	 */
-	public List<userEntity> listmohu(String usermohu);
+	public List<UserEntity> listmohu(String usermohu);
 	
 	/**
 	 * 根据用户输入的手机号 进行模糊查询出所得
 	 * @return
 	 * 
 	 */
-	public List<userEntity> userPhone(String userPhone);
+	public List<UserEntity> userPhone(String userPhone);
 	
 	
 	/**
@@ -102,7 +95,7 @@ public interface UserListDao {
 	 * @return
 	 * 
 	 */
-	public List<userEntity> userID(String userID);
+	public List<UserEntity> userID(String userID);
 	
 	
 	
@@ -110,7 +103,7 @@ public interface UserListDao {
 	 *  根据用户的状态 查询出用户的所有信息
 	 * @return
 	 */
-	public List<userEntity> xiaoheiwu(String  userStat);
+	public List<UserEntity> xiaoheiwu(String  userStat);
 	
 	/**
 	 * 根据当前页查询出6条记录
@@ -119,7 +112,7 @@ public interface UserListDao {
 	 * @param meiyexianshiduoshaoge 每页显示多少个视频
 	 * @return
 	 */
-	public List<videoEntity> Pagevideolist(String State,int dangqianye,int meiyexianshiduoshaoge);
+	public List<VideoEntity> Pagevideolist(String State,int dangqianye,int meiyexianshiduoshaoge);
 	
 	
 	
@@ -135,7 +128,7 @@ public interface UserListDao {
 	 * 将商品全部信息查询出来
 	 * @return
 	 */
-	public List<gridsEntity> gridslist();
+	public List<GridsEntity> gridslist();
 	
 	
 	/**
@@ -143,7 +136,7 @@ public interface UserListDao {
 	 * @param gridsID
 	 * @return
 	 */
-	public gridsEntity gridsIDlist(String gridsID);
+	public GridsEntity gridsIDlist(String gridsID);
 	
 	
 	/**
@@ -160,7 +153,7 @@ public interface UserListDao {
 	 * @param forumliebie
 	 * @return
 	 */
-	public List<forumEntity> forumEnt(String forumliebie);
+	public List<ForumEntity> forumEnt(String forumliebie);
 	
 	
 	
@@ -168,21 +161,21 @@ public interface UserListDao {
 	 *  根据用户名查询出所有的订单
 	 * 
 	 */
-	public List<ordertableEntity> ordertable(String userName);
+	public List<OrderTableEntity> ordertable(String userName);
 	
 	
 	/**
 	 *  查询出所有的订单
 	 * 
 	 */
-	public List<ordertableEntity> ordertablelist();
+	public List<OrderTableEntity> ordertablelist();
 	
 	
 	/**
 	 *  查询出标记的订单
 	 * 
 	 */
-	public List<ordertableEntity> orderStat(String orderStat);
+	public List<OrderTableEntity> orderStat(String orderStat);
 	
 	
 	/**

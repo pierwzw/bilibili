@@ -4,23 +4,23 @@
 
 <mapper namespace="com.sf.dao.QueryMapper">
 
-    <select id="queryUserByUserNameAndPassWord" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+    <select id="queryUserByUserNameAndPassWord" parameterMap="java.util.Map" resultType="com.sf.entity.UserEntity">
         SELECT * FROM user WHERE userName = #{userName} and passWord = #{passWord}
     </select>
 
-    <select id="queryUserByUserNameAndEmail" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+    <select id="queryUserByUserNameAndEmail" parameterMap="java.util.Map" resultType="com.sf.entity.UserEntity">
         SELECT * FROM user WHERE userName = #{userName} and userEmial = #{userEmial}
     </select>
 
-    <select id="queryUserByUserNameAndPhone" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+    <select id="queryUserByUserNameAndPhone" parameterMap="java.util.Map" resultType="com.sf.entity.UserEntity">
         SELECT * FROM user WHERE userName = #{userName} and userPhone = #{userPhone}
     </select>
 
-    <select id="queryUserByUserNameAndPayPassword" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+    <select id="queryUserByUserNameAndPayPassword" parameterMap="java.util.Map" resultType="com.sf.entity.UserEntity">
         SELECT * FROM user WHERE userName = #{userName} and userPaypassword = #{userPaypassword}
     </select>
 
-    <select id="queryUserByUserNameAndUserHand" parameterMap="java.util.Map" resultType="com.sf.entity.userEntity">
+    <select id="queryUserByUserNameAndUserHand" parameterMap="java.util.Map" resultType="com.sf.entity.UserEntity">
         SELECT * FROM user WHERE userName = #{userName} and userHand = #{userHand}
     </select>
 
@@ -36,8 +36,8 @@
         select * from video order by rand() limit #{limit}
     </select>
     
-    <select id="queryMessageByMessageVideoId" parameterType="java.lang.String" resultType="java.util.List">
-        select * from message WHERE messagevideoID=#{messageVideoId} order by STR_TO_DATE(messageTime,'%m/%d/%Y %h:%i:%s %p') desc
+    <select id="queryMessageByMessagevideoId" parameterType="java.lang.String" resultType="java.util.List">
+        select * from message WHERE messagevideoId=#{messagevideoId} order by STR_TO_DATE(messageTime,'%m/%d/%Y %h:%i:%s %p') desc
     </select>
     
     <select id="queryUserPagination" parameterType="int" resultType="java.util.List">

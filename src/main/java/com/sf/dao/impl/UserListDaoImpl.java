@@ -1,29 +1,14 @@
 package com.sf.dao.impl;
 
 
-import java.util.List;
-
+import com.sf.dao.UserListDao;
+import com.sf.db.Data_jdbcTemplate;
+import com.sf.entity.*;
+import com.sf.tool.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.sf.dao.UserListDao;
-import com.sf.db.Data_jdbcTemplate;
-import com.sf.entity.ShoppingCart;
-import com.sf.entity.forumEntity;
-import com.sf.entity.forumreplyEntity;
-import com.sf.entity.gridsEntity;
-import com.sf.entity.messageEntity;
-import com.sf.entity.ordertableEntity;
-import com.sf.entity.userEntity;
-import com.sf.entity.videoEntity;
-import com.sf.tool.GridsRowMapperEntity;
-import com.sf.tool.RowMapperEntity;
-import com.sf.tool.RowMapperVideoEntity;
-import com.sf.tool.ShoppingCartRowMapperEntity;
-import com.sf.tool.VideoRowMapperEntity;
-import com.sf.tool.forumEntityRowMapper;
-import com.sf.tool.forumreplyEntityRowMapper;
-import com.sf.tool.ordertableRowMapperEntity;
+import java.util.List;
 
 @Component
 public class UserListDaoImpl implements UserListDao {
@@ -31,18 +16,18 @@ public class UserListDaoImpl implements UserListDao {
 		@Autowired
 		Data_jdbcTemplate jdbcTemplate;
 	
-	public userEntity userlist(String userName) {
+	public UserEntity userlist(String userName) {
 		//根据名字查询出用户对象. - - 
 			String sql="select * from user where userName=?";
-			userEntity user=jdbcTemplate.getJdbcTemplate().queryForObject(sql,new Object[]{userName},new RowMapperEntity());		
+			UserEntity user=jdbcTemplate.getJdbcTemplate().queryForObject(sql,new Object[]{userName},new RowMapperEntity());
 		return user;
 	}
 
 	
-	public List<videoEntity> videolist(String videocAtegory) {
+	public List<VideoEntity> videolist(String videocAtegory) {
 		//将全部视频查询出来
 		String sql="select * from video where videocAtegory=? order by rand() limit 8";//将视频标记为1的正常视频全部查询出
-				List<videoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{videocAtegory} ,new VideoRowMapperEntity());		
+				List<VideoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{videocAtegory} ,new VideoRowMapperEntity());
 				
 			return list;
 	}
@@ -50,31 +35,31 @@ public class UserListDaoImpl implements UserListDao {
 
 	//SELECT * from video ORDER BY RAND() LIMIT 5;随机在数据库里面查询出5条记录
 	
-	public List<videoEntity> videolistimit7() {
+	public List<VideoEntity> videolistimit7() {
 		String sql="select * from video order by rand() limit 7";
-		List<videoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{} ,new VideoRowMapperEntity());		
+		List<VideoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{} ,new VideoRowMapperEntity());
 		
 		return list;
 	}
 
 
 	@Override
-	public List<videoEntity> videolistimit5MAD() {
+	public List<VideoEntity> videolistimit5MAD() {
 		String sql="select * from video order by rand() limit 5 ";
-		List<videoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{} ,new VideoRowMapperEntity());		
+		List<VideoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{} ,new VideoRowMapperEntity());
 		
 		return list;
 	}
 
 
 	@Override
-	public List<messageEntity> messagelist(String videoID) {
-		 List<messageEntity> list=null;
+	public List<MessageEntity> messagelist(String videoId) {
+		 List<MessageEntity> list=null;
 		//根据用户传过来的ID 查询出当前视频的所有留言
 		//根据名字查询出用户对象. - - 
-		String sql="select * from message WHERE messagevideoID=? order by STR_TO_DATE(messageTime,'%m/%d/%Y %h:%i:%s %p') desc";
-		//select * from message WHERE messagevideoID="1" order by STR_TO_DATE(messageTime,'%m/%d/%Y %h:%i:%s %p') desc;
-		list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{videoID},new RowMapperVideoEntity());		
+		String sql="select * from message WHERE messagevideoId=? order by STR_TO_DATE(messageTime,'%m/%d/%Y %h:%i:%s %p') desc";
+		//select * from message WHERE messagevideoId="1" order by STR_TO_DATE(messageTime,'%m/%d/%Y %h:%i:%s %p') desc;
+		list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{videoId},new RowMapperVideoEntity());
 		//将查询出来的所有结果全部放入到list集合当中
 		return list;
 		
@@ -82,8 +67,8 @@ public class UserListDaoImpl implements UserListDao {
 
 
 	@Override
-	public List<userEntity> userlistpage(int pageInt) {
-		List<userEntity> user=null;
+	public List<UserEntity> userlistpage(int pageInt) {
+		List<UserEntity> user=null;
 		/*limit arg1,arg2 arg1指定查询记录的起始位置；arg2用于指定查询数据所返回的记录数
 		select * from tablename limit 0,1
 		即取出第一条记录。
@@ -105,47 +90,47 @@ public class UserListDaoImpl implements UserListDao {
 
 
 	@Override
-	public List<userEntity> listmohu(String usermohu) {
+	public List<UserEntity> listmohu(String usermohu) {
 		//SELECT * FROM user where userMingzi LIKE '%爱仕达%';
 		//模糊查询 根据输入的名字查询
 		String sql="select * from user where userMingzi LIKE ?";
-		List<userEntity> list = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{usermohu},new RowMapperEntity());
+		List<UserEntity> list = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{usermohu},new RowMapperEntity());
 		return list;
 	}
 
 
 	@Override
-	public List<userEntity> userPhone(String userPhone) {
+	public List<UserEntity> userPhone(String userPhone) {
 		//模糊查询 根据输入的名字查询
 				String sql="select * from user where userPhone LIKE ? order by rand() limit 3";
-				List<userEntity> list = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userPhone},new RowMapperEntity());
+				List<UserEntity> list = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userPhone},new RowMapperEntity());
 				return list;
 	}
 
 
 	@Override
-	public List<userEntity> userID(String userID) {
+	public List<UserEntity> userID(String userID) {
 		String sql="select * from user where userID=?";
-		List<userEntity> list = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userID},new RowMapperEntity());
+		List<UserEntity> list = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userID},new RowMapperEntity());
 		return list;
 	}
 
 
 	@Override
-	public List<userEntity> xiaoheiwu(String userStat) {
+	public List<UserEntity> xiaoheiwu(String userStat) {
 		//根据名字查询出用户对象. - - 
 		String sql="select * from user where userState=?";
 		//System.out.println("进来了");
-		List<userEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userStat},new RowMapperEntity());	
+		List<UserEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userStat},new RowMapperEntity());
 		return list;
 	}
 
 
 	@Override
-	public List<videoEntity> Pagevideolist(String State, int dangqianye,int meiyexianshiduoshaoge) {
-		//SELECT * FROM video WHERE videoID<=5 LIMIT 0,6
+	public List<VideoEntity> Pagevideolist(String State, int dangqianye,int meiyexianshiduoshaoge) {
+		//SELECT * FROM video WHERE videoId<=5 LIMIT 0,6
 		String sql="SELECT * FROM video WHERE videocAtegory = ? LIMIT ?,?";
-		List<videoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{State,dangqianye,meiyexianshiduoshaoge} ,new VideoRowMapperEntity());		
+		List<VideoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{State,dangqianye,meiyexianshiduoshaoge} ,new VideoRowMapperEntity());
 		return list;
 	}
 
@@ -160,27 +145,27 @@ public class UserListDaoImpl implements UserListDao {
 
 
 	@Override
-	public List<gridsEntity> gridslist() {
+	public List<GridsEntity> gridslist() {
 		String sql="select * from grids";
-		 List<gridsEntity> gridslist = jdbcTemplate.getJdbcTemplate().query(sql,new GridsRowMapperEntity());
+		 List<GridsEntity> gridslist = jdbcTemplate.getJdbcTemplate().query(sql,new GridsRowMapperEntity());
 		
 		return gridslist;
 	}
 
 
 	@Override
-	public gridsEntity gridsIDlist(String gridsID) {
+	public GridsEntity gridsIDlist(String gridsID) {
 		String sql="select * from grids where gridsID = ?";
-		 gridsEntity gridsIDlist = (gridsEntity) jdbcTemplate.getJdbcTemplate().queryForObject(sql,new Object[]{gridsID} ,new GridsRowMapperEntity());
+		 GridsEntity gridsIDlist = (GridsEntity) jdbcTemplate.getJdbcTemplate().queryForObject(sql,new Object[]{gridsID} ,new GridsRowMapperEntity());
 		return gridsIDlist;
 	}
 
 
 	@Override
-	public List<userEntity> userlistUserName(String userName) {
+	public List<UserEntity> userlistUserName(String userName) {
 		//根据名字查询出用户对象. - - 
 		String sql="select * from user where userName=?";
-		List<userEntity> user=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userName},new RowMapperEntity());	
+		List<UserEntity> user=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userName},new RowMapperEntity());
 		return user;
 	}
 
@@ -195,35 +180,35 @@ public class UserListDaoImpl implements UserListDao {
 
 
 	@Override
-	public List<videoEntity> videolistimit6MAD() {
+	public List<VideoEntity> videolistimit6MAD() {
 		String sql="select * from video order by rand() limit 6";
-		List<videoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{} ,new VideoRowMapperEntity());		
+		List<VideoEntity> list=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{} ,new VideoRowMapperEntity());
 		
 		return list;
 	}
 
 
 	@Override
-	public List<ordertableEntity> ordertable(String userName) {
+	public List<OrderTableEntity> ordertable(String userName) {
 		String sql = "select * from ordertable where OrderuserName=?";
-		List<ordertableEntity> ordertable = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userName} ,new ordertableRowMapperEntity());
+		List<OrderTableEntity> ordertable = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{userName} ,new OrderTableRowMapperEntity());
 		
 		return ordertable;
 	}
 
 
 	@Override
-	public List<ordertableEntity> ordertablelist() {
+	public List<OrderTableEntity> ordertablelist() {
 		String sql = "select * from ordertable";
-		List<ordertableEntity> ordertable = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{} ,new ordertableRowMapperEntity());
+		List<OrderTableEntity> ordertable = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{} ,new OrderTableRowMapperEntity());
 		return ordertable;
 	}
 
 
 	@Override
-	public List<ordertableEntity> orderStat(String orderStat) {
+	public List<OrderTableEntity> orderStat(String orderStat) {
 		String sql = "select * from ordertable where orderStat = ?";
-		List<ordertableEntity> ordertable = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{orderStat} ,new ordertableRowMapperEntity());
+		List<OrderTableEntity> ordertable = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{orderStat} ,new OrderTableRowMapperEntity());
 		return ordertable;
 	}
 
@@ -237,20 +222,20 @@ public class UserListDaoImpl implements UserListDao {
 
 
 	@Override
-	public List<forumEntity> forumEnt(String forumliebie) {
+	public List<ForumEntity> forumEnt(String forumliebie) {
 		//select * from forum where forumliebie = "1" Order By forumTime Desc 
 		String sql = "select * from forum where forumliebie = ? Order By forumTime Desc";
-		List<forumEntity> forum = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{forumliebie} ,new forumEntityRowMapper());
+		List<ForumEntity> forum = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{forumliebie} ,new ForumEntityRowMapper());
 		//将查询出来的全部信息保存的List当中
 		return forum;
 	}
 
 
 	@Override
-	public forumEntity forumentitymmp(String forumID) {
+	public ForumEntity forumentitymmp(String forumID) {
 		//根ID查询出帖子内容
 		String sql="select * from forum where forumID=?";
-		forumEntity user=jdbcTemplate.getJdbcTemplate().queryForObject(sql,new Object[]{forumID},new forumEntityRowMapper());		
+		ForumEntity user=jdbcTemplate.getJdbcTemplate().queryForObject(sql,new Object[]{forumID},new ForumEntityRowMapper());
 		return user;
 	}
 
@@ -264,10 +249,10 @@ public class UserListDaoImpl implements UserListDao {
 
 
 	@Override
-	public List<forumreplyEntity> forumreply(String forumreplyID) {
+	public List<ForumReplyEntity> forumreply(String forumreplyID) {
 		//select * from forum where forumliebie = "1" Order By forumTime Desc 
 				String sql = "select * from forumreply where replytieziid = ? Order By replytime Desc";
-				List<forumreplyEntity> forum = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{forumreplyID} ,new forumreplyEntityRowMapper());
+				List<ForumReplyEntity> forum = jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{forumreplyID} ,new ForumReplyEntityRowMapper());
 				//将查询出来的全部信息保存的List当中
 				return forum;
 	}

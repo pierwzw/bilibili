@@ -1,9 +1,9 @@
 package com.sf.service;
 
 import com.sf.entity.ShoppingCart;
-import com.sf.entity.forumEntity;
-import com.sf.entity.forumreplyEntity;
-import com.sf.entity.messageEntity;
+import com.sf.entity.ForumEntity;
+import com.sf.entity.ForumReplyEntity;
+import com.sf.entity.MessageEntity;
 
 public interface MessageService {
 	
@@ -14,7 +14,7 @@ public interface MessageService {
 	 * @param message
 	 * @return
 	 */
-	public boolean message(messageEntity message);
+	public boolean message(MessageEntity message);
 	
 	
 	/**
@@ -30,7 +30,7 @@ public interface MessageService {
 	 * @param forument
 	 * @return
 	 */
-	public boolean forumfuck(forumEntity forument);
+	public boolean forumfuck(ForumEntity forument);
 	
 	
 	
@@ -39,5 +39,5 @@ public interface MessageService {
 	 * @param forument
 	 * @return
 	 */
-	public boolean forumreply(forumreplyEntity forumreply);
+	public boolean forumreply(ForumReplyEntity forumreply);
 }

@@ -1,10 +1,10 @@
 package com.sf.service;
 
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 
 public interface RegisterService {
 	
-	public boolean RegisterService(userEntity user);
+	public boolean RegisterService(UserEntity user);
 	
 	
 }

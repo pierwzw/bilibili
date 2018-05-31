@@ -1,6 +1,6 @@
 package com.sf.service;
 
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 
 public interface Update_login_password_Service {
 	
@@ -55,7 +55,7 @@ public interface Update_login_password_Service {
 	 * @param user
 	 * @return
 	 */
-	public boolean Update_user(userEntity user);
+	public boolean Update_user(UserEntity user);
 	
 	
 	/**

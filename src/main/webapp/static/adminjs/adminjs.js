@@ -18,7 +18,7 @@
 				var i = 0;
 				$.each(ht, function(index, m) {
 					html += "<li class='item'><a href='video.sf?dizhi="
-							+ m.videoAddress + "&shipingID=" + m.videoID
+							+ m.videoAddress + "&shipingID=" + m.videoId
 							+ "'><i class='n2'>"+(++i)+"</i>" + m.videoName
 							+ "</a></li>";
 				});
@@ -31,7 +31,7 @@
 				var i=0;
 				$.each(ht, function(index, m) {
 					html += "<li class='item'><a href='video.sf?dizhi="
-							+ m.videoAddress + "&shipingID=" + m.videoID
+							+ m.videoAddress + "&shipingID=" + m.videoId
 							+ "'><i class='n2'>"+(++i)+"</i>" + m.videoName
 							+ "</a></li>";
 				});
@@ -44,7 +44,7 @@
 				var ht = eval("(" + test + ")");
 				$.each(ht, function(index, m) {
 					html += "<li class='item'><a href='video.sf?dizhi="
-							+ m.videoAddress + "&shipingID=" + m.videoID
+							+ m.videoAddress + "&shipingID=" + m.videoId
 							+ "'><i class='n2'>"+(++i)+"</i>" + m.videoName
 							+ "</a></li>";
 				});
@@ -88,7 +88,7 @@ window.onload = function() {
 			var ht = eval("(" + test + ")");
 			$.each(ht, function(index, m) {
 				html += "<li class='item'><a href='video.sf?dizhi="
-						+ m.videoAddress + "&shipingID=" + m.videoID
+						+ m.videoAddress + "&shipingID=" + m.videoId
 						+ "'><i class='n2'>"+(++i)+"</i>" + m.videoName + "</a></li>";
 			});
 			// alert(html);
@@ -113,7 +113,7 @@ window.onload = function() {
 			var ht = eval("(" + test + ")");
 			$.each(ht, function(index, m) {
 				html += "<li class='item'><a href='video.sf?dizhi="
-						+ m.videoAddress + "&shipingID=" + m.videoID
+						+ m.videoAddress + "&shipingID=" + m.videoId
 						+ "'><i class='n2'>"+(++i)+"</i>" + m.videoName + "</a></li>";
 			});
 			// alert(html);
@@ -139,7 +139,7 @@ window.onload = function() {
 			var i=0;
 			$.each(ht, function(index, m) {
 				html += "<li class='item'><a href='video.sf?dizhi="
-						+ m.videoAddress + "&shipingID=" + m.videoID
+						+ m.videoAddress + "&shipingID=" + m.videoId
 						+ "'><i class='n2'>"+(++i)+"</i>" + m.videoName + "</a></li>";
 			});
 			// alert(html);

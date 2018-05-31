@@ -12,12 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,20 +28,18 @@ import com.google.gson.Gson;
 import com.sf.chaxun.Callingmethod;
 import com.sf.chaxun.TestMain;
 import com.sf.entity.ShoppingCart;
-import com.sf.entity.forumEntity;
-import com.sf.entity.forumreplyEntity;
-import com.sf.entity.gridsEntity;
-import com.sf.entity.messageEntity;
-import com.sf.entity.ordertableEntity;
-import com.sf.entity.userEntity;
-import com.sf.entity.videoEntity;
-import com.sf.entity.videoTopEntity;
-import com.sf.jingtai.JspToHtml;
+import com.sf.entity.ForumEntity;
+import com.sf.entity.ForumReplyEntity;
+import com.sf.entity.GridsEntity;
+import com.sf.entity.MessageEntity;
+import com.sf.entity.OrderTableEntity;
+import com.sf.entity.UserEntity;
+import com.sf.entity.VideoEntity;
+import com.sf.entity.VideoUploadEntity;
 import com.sf.lanjieqi.Auth;
 import com.sf.service.MessageService;
 import com.sf.service.UserListService;
 import com.sf.service.impl.Addserviceimpl;
-import com.sf.service.impl.LoginServiceImpl;
 import com.sf.service.impl.MessageServiceImpl;
 import com.sf.service.impl.Update_login_password_Service_Impl;
 import com.sf.service.impl.UserListServiceImpl;
@@ -87,19 +83,19 @@ public class T {
 	@RequestMapping("logoone.sf")
 	public ModelAndView logoone(HttpServletRequest request,HttpServletResponse response) {
 		
-		List<videoEntity> list = userListServiceImpl.videolist("1");// 1 为动画mad
+		List<VideoEntity> list = userListServiceImpl.videolist("1");// 1 为动画mad
 		Map model = new HashMap();
 		model.put("list", list);
-		List<videoEntity> list2 = userListServiceImpl.videolist("2");// 2
+		List<VideoEntity> list2 = userListServiceImpl.videolist("2");// 2
 		model.put("list2", list2);
-		List<videoEntity> list3 = userListServiceImpl.videolist("3");// 3
+		List<VideoEntity> list3 = userListServiceImpl.videolist("3");// 3
 		model.put("list3", list3);
 		// 随机查6条数据出来
-		List<videoEntity> fuck = userListServiceImpl.videolistimit6MAD();
+		List<VideoEntity> fuck = userListServiceImpl.videolistimit6MAD();
 		model.put("fuck", fuck);
 		/*
-		 * List<videoEntity> test = userListServiceImpl.videolistimit5();
-		 * for(videoEntity ts:test){ System.out.println("测试是否查询出来");
+		 * List<VideoEntity> test = userListServiceImpl.videolistimit5();
+		 * for(VideoEntity ts:test){ System.out.println("测试是否查询出来");
 		 * System.out.println(ts.getVideoName());
 		 * System.out.println(ts.getVideoTime()); } 可以查询出这么多条记录
 		 */
@@ -119,7 +115,7 @@ public class T {
 	// AJAX 提交
 	@RequestMapping(value = "ajaxTuiJian", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public @ResponseBody void ajaxTuiJian(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		List<videoEntity> list = userListServiceImpl.videolistimit7();
+		List<VideoEntity> list = userListServiceImpl.videolistimit7();
 		// 设置编码
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
@@ -132,7 +128,7 @@ public class T {
 	// AJAX 提交
 	@RequestMapping(value = "ajaxTuiJian2", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public @ResponseBody void webajax2(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		List<videoEntity> list = userListServiceImpl.videolistimit5MAD();
+		List<VideoEntity> list = userListServiceImpl.videolistimit5MAD();
 
 		// 设置编码
 		response.setCharacterEncoding("UTF-8");
@@ -148,7 +144,7 @@ public class T {
 	public @ResponseBody void querendingdan(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		String userName = (String) request.getSession().getAttribute("userName");
-		List<userEntity> user = userListServiceImpl.userlistUserName(userName);
+		List<UserEntity> user = userListServiceImpl.userlistUserName(userName);
 		// user.getUserID();
 		// 设置编码
 		response.setCharacterEncoding("UTF-8");
@@ -206,7 +202,7 @@ public class T {
 
 		// 得到登录用户的名字
 		String userName = (String) request.getSession().getAttribute("userName");
-		userEntity user = userListServiceImpl.userlist(userName);
+		UserEntity user = userListServiceImpl.userlist(userName);
 		Map model = new HashMap();
 
 		model.put("user", user);// userlist是个Arraylist之类的
@@ -309,7 +305,7 @@ public class T {
 	public ModelAndView Information(HttpServletRequest request) {
 		// 得到登录用户的名字
 		String userName = (String) request.getSession().getAttribute("userName");
-		userEntity user = userListServiceImpl.userlist(userName);
+		UserEntity user = userListServiceImpl.userlist(userName);
 		Map model = new HashMap();
 
 		model.put("user", user);// userlist是个Arraylist之类的
@@ -362,7 +358,7 @@ public class T {
 	public String userHand(HttpServletRequest request) {
 		String userName = (String) request.getSession().getAttribute("userName");
 		String path2 = (String) request.getSession().getAttribute("fuckyou");
-		userEntity user = userListServiceImpl.userlist(userName);
+		UserEntity user = userListServiceImpl.userlist(userName);
 
 		// System.out.println(user.getUserHand());
 		String userHand = user.getUserHand();
@@ -396,12 +392,12 @@ public class T {
 		// System.out.println(shipingID);//拿到视频地址
 		request.setAttribute("shipingID", shipingID);
 		// 根据视频ID查询出 此视频的所有留言
-		List<messageEntity> messagelist = userListService.messagelist(shipingID);
+		List<MessageEntity> messagelist = userListService.messagelist(shipingID);
 		
-		for (messageEntity message : messagelist) {
-			message.getMessageuserName();// 得到用户名
+		for (MessageEntity message : messagelist) {
+			message.getMessageUserName();// 得到用户名
 			// 根据每个用户名查询出每个用户对应的头像地址
-			// userEntity userent =
+			// UserEntity userent =
 			// userListService.userlist(message.getMessageuserName());
 			// System.out.println(userent.getUserName());
 			// model.put("userent",userent);//userlist是个Arraylist之类的
@@ -421,13 +417,13 @@ public class T {
 	@RequestMapping("test.sf")
 	public String Test() {
 
-		messageEntity user = new messageEntity();
+		MessageEntity user = new MessageEntity();
 		user.setMessage("1");
-		user.setMessageID("1");
+		user.setMessageId("1");
 		user.setMessageTime("1");
-		user.setMessageuserID("1");
-		user.setMessageuserName("1");
-		user.setMessagevideoID("1");
+		user.setMessageUserId("1");
+		user.setMessageUserName("1");
+		user.setMessagevideoId("1");
 
 		boolean bl = messageService.message(user);
 		if (bl) {
@@ -441,8 +437,8 @@ public class T {
 
 	// 留言- - 测试
 	/*
-	 * @RequestMapping("test2.sf") public String Test2() { List<messageEntity>
-	 * list=userListService.messagelist("11"); for(messageEntity li:list){
+	 * @RequestMapping("test2.sf") public String Test2() { List<MessageEntity>
+	 * list=userListService.messagelist("11"); for(MessageEntity li:list){
 	 * System.out.println(li.getMessageuserName()); } return "";
 	 * 
 	 * }
@@ -464,10 +460,10 @@ public class T {
 		// 设置一个默认从第一条开始查询 只查询出15条记录
 		String pageInt = "0";
 		int test = Integer.valueOf(pageInt).intValue();
-		List<userEntity> list = userListServiceImpl.userlistpage(test);
+		List<UserEntity> list = userListServiceImpl.userlistpage(test);
 
 		/*
-		 * for(userEntity lis:list){ System.out.println(lis.getUserName()); }
+		 * for(UserEntity lis:list){ System.out.println(lis.getUserName()); }
 		 */
 
 		Map model = new HashMap();
@@ -483,7 +479,7 @@ public class T {
 			String message) throws IOException {
 		String shuaige = message;
 		// 得到内容 ajax提交进来
-		List<userEntity> list = userListServiceImpl.listmohu("%" + shuaige + "%");
+		List<UserEntity> list = userListServiceImpl.listmohu("%" + shuaige + "%");
 
 		// 设置编码
 		response.setCharacterEncoding("UTF-8");
@@ -503,7 +499,7 @@ public class T {
 			String message) throws IOException {
 		String shuaige = message;
 		// 得到内容 ajax提交进来
-		List<userEntity> list = userListServiceImpl.userPhone("%" + shuaige + "%");
+		List<UserEntity> list = userListServiceImpl.userPhone("%" + shuaige + "%");
 
 		// 设置编码
 		response.setCharacterEncoding("UTF-8");
@@ -522,7 +518,7 @@ public class T {
 	public @ResponseBody void userID(HttpServletRequest request, HttpServletResponse response, String userID)
 			throws IOException {
 		// 得到内容 ajax提交进来
-		List<userEntity> list = userListServiceImpl.userID(userID);
+		List<UserEntity> list = userListServiceImpl.userID(userID);
 
 		// 设置编码
 		response.setCharacterEncoding("UTF-8");
@@ -558,20 +554,20 @@ public class T {
 		// userEmial = "794799102@qq.com" where
 		// userID = "004bcfc8d4bd407bb1a114785539006f"
 
-		userEntity user = new userEntity();
+		UserEntity user = new UserEntity();
 		// 设置编码
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
 		user.setUserName(userName);
 		user.setUserMingzi(userzhenshiName);
-		user.setUsersex(userSex);
+		user.setUserSex(userSex);
 		user.setPassWord(passWord);
 		user.setUserAddress(addr);
 		user.setUserPhone(userPhone);
 		user.setUserQQ(userQQ);
 		user.setUserEmial(userEmial);
-		user.setUserID(userID);
+		user.setUserId(userID);
 		boolean bl = update_login_password_Service_Impl.Update_user(user);
 		if (bl) {
 			echo = "修改成功";
@@ -588,7 +584,7 @@ public class T {
 	@RequestMapping("xiaoheiwu.sf")
 	public ModelAndView xiaoheiwu(HttpServletRequest request) {
 		// 将用户表里面被拉黑的用户全部查询出来
-		List<userEntity> user = userListServiceImpl.xiaoheiwu("异常");
+		List<UserEntity> user = userListServiceImpl.xiaoheiwu("异常");
 		Map model = new HashMap();
 		model.put("user", user);
 		return new ModelAndView("xiaoheiwu", model);
@@ -601,7 +597,7 @@ public class T {
 
 		/*
 		 * dangqianye= "0"; int dangqianye2 = Integer.parseInt(dangqianye);
-		 * List<videoEntity> list=userListServiceImpl.Pagevideolist("1",
+		 * List<VideoEntity> list=userListServiceImpl.Pagevideolist("1",
 		 * dangqianye2); Map model =new HashMap(); model.put("list", list);
 		 */
 		// request.setAttribute("test", "测试");
@@ -621,9 +617,9 @@ public class T {
 	@RequestMapping(value = "ajaxtijiao1.sf", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public @ResponseBody void ajaxtijiao(HttpServletRequest request, HttpServletResponse response, String State,
 			String dangqianye, int meiyexianshiduoshaoge) throws IOException {
-		/* List<videoEntity> list = userListServiceImpl.videolistimit5(); */
+		/* List<VideoEntity> list = userListServiceImpl.videolistimit5(); */
 		int dangqianye2 = Integer.parseInt(dangqianye);
-		List<videoEntity> list = userListServiceImpl.Pagevideolist(State, dangqianye2, meiyexianshiduoshaoge);// State
+		List<VideoEntity> list = userListServiceImpl.Pagevideolist(State, dangqianye2, meiyexianshiduoshaoge);// State
 																												// 标记
 
 		// 设置编码
@@ -645,11 +641,11 @@ public class T {
 		 * girdsjiage);
 		 */
 		ShoppingCart shoppingCart = new ShoppingCart();
-		shoppingCart.setCartID(GetUUID.getUUID());
-		shoppingCart.setShoopingID(girdsID);
-		shoppingCart.setShoopingImg(girdsimg);
-		shoppingCart.setShoopingjiage(girdsjiage);
-		shoppingCart.setShoopingName(girdsName);
+		shoppingCart.setCartId(GetUUID.getUUID());
+		shoppingCart.setShoppingId(girdsID);
+		shoppingCart.setShoppingImg(girdsimg);
+		shoppingCart.setShoppingPrice(girdsjiage);
+		shoppingCart.setShoppingName(girdsName);
 		shoppingCart.setUserName(userName);
 		boolean bl = messageServiceImpl.Shoppingcart(shoppingCart);
 
@@ -672,7 +668,7 @@ public class T {
 	// 商品详情页面 请求
 	@RequestMapping("gridspay.sf")
 	public String gridspay(HttpServletRequest request, String girdsID) {
-		gridsEntity gridslist = userListServiceImpl.gridsIDlist(girdsID);
+		GridsEntity gridslist = userListServiceImpl.gridsIDlist(girdsID);
 		request.setAttribute("gridslist", gridslist);
 
 		return "gridspay";
@@ -693,12 +689,12 @@ public class T {
 			System.out.println("Confirmorder.sf" + "这里的乱码解决失败");
 		}
 
-		gridsEntity grids = new gridsEntity();
+		GridsEntity grids = new GridsEntity();
 		grids.setGridsID(girdsID);
-		grids.setGirdsimg(gridsimg);
-		grids.setGirdsjiage(gridsjiage);
+		grids.setGirdsImg(gridsimg);
+		grids.setGirdsPrice(gridsjiage);
 		grids.setGirdsName(gridsName);
-		grids.setGirdskucun(gridskucun);
+		grids.setGirdsStorage(gridskucun);
 		// System.out.println(grids.getGirdsName());
 
 		request.setAttribute("grids", grids);
@@ -738,7 +734,7 @@ public class T {
 
 	@RequestMapping("Shopping.sf")
 	public ModelAndView Shopping(HttpServletRequest request) {
-		List<gridsEntity> gridslist = userListServiceImpl.gridslist();
+		List<GridsEntity> gridslist = userListServiceImpl.gridslist();
 
 		Map model = new HashMap();
 		model.put("gridslist", gridslist);
@@ -751,7 +747,7 @@ public class T {
 	public ModelAndView Order(HttpServletRequest request) {
 		String userName = (String) request.getSession().getAttribute("userName");
 		// 根据名字查询出所有的订单
-		List<ordertableEntity> ordertable = userListServiceImpl.ordertable(userName);
+		List<OrderTableEntity> ordertable = userListServiceImpl.ordertable(userName);
 
 		Map model = new HashMap();
 		model.put("ordertable", ordertable);
@@ -763,7 +759,7 @@ public class T {
 	// 全部订单
 	@RequestMapping("Adminbackgroundshipment")
 	public ModelAndView admin(HttpServletRequest request) {
-		List<ordertableEntity> ordertable = userListServiceImpl.ordertablelist();
+		List<OrderTableEntity> ordertable = userListServiceImpl.ordertablelist();
 		Map model = new HashMap();
 		model.put("ordertable", ordertable);
 		return new ModelAndView("Adminbackgroundshipment", model);
@@ -772,7 +768,7 @@ public class T {
 	// 待发货
 	@RequestMapping("Shipmentpending")
 	public ModelAndView Shipmentpending(HttpServletRequest request) {
-		List<ordertableEntity> ordertable = userListServiceImpl.orderStat("1");
+		List<OrderTableEntity> ordertable = userListServiceImpl.orderStat("1");
 		Map model = new HashMap();
 		model.put("ordertable", ordertable);
 		return new ModelAndView("Shipmentpending", model);
@@ -781,7 +777,7 @@ public class T {
 	// 已完成订单
 	@RequestMapping("Completedorder")
 	public ModelAndView Completedorder(HttpServletRequest request) {
-		List<ordertableEntity> ordertable = userListServiceImpl.orderStat("4");
+		List<OrderTableEntity> ordertable = userListServiceImpl.orderStat("4");
 		Map model = new HashMap();
 		model.put("ordertable", ordertable);
 		return new ModelAndView("Completedorder", model);
@@ -790,7 +786,7 @@ public class T {
 	// 待会退的
 	@RequestMapping("Returngoods")
 	public ModelAndView Returngoods(HttpServletRequest request) {
-		List<ordertableEntity> ordertable = userListServiceImpl.orderStat("3");
+		List<OrderTableEntity> ordertable = userListServiceImpl.orderStat("3");
 		Map model = new HashMap();
 		model.put("ordertable", ordertable);
 		return new ModelAndView("Returngoods", model);
@@ -798,7 +794,7 @@ public class T {
 
 	@RequestMapping("DeletOrder")
 	public ModelAndView DeletOrder(HttpServletRequest request) {
-		List<ordertableEntity> ordertable = userListServiceImpl.orderStat("5");
+		List<OrderTableEntity> ordertable = userListServiceImpl.orderStat("5");
 		Map model = new HashMap();
 		model.put("ordertable", ordertable);
 		return new ModelAndView("DeletOrder", model);
@@ -816,7 +812,7 @@ public class T {
 	public @ResponseBody void AJAXinquiryorder(HttpServletRequest request, HttpServletResponse response, String val)
 			throws IOException {
 		// 根据用户名查询出此用户下单 String val//这个为用户名
-		List<ordertableEntity> ordertable = userListServiceImpl.ordertable(val);
+		List<OrderTableEntity> ordertable = userListServiceImpl.ordertable(val);
 		// user.getUserID();
 		// 设置编码
 		response.setCharacterEncoding("UTF-8");
@@ -894,7 +890,7 @@ public class T {
 					try {
 
 						// new 出一个实体
-						videoTopEntity video = new videoTopEntity();
+						VideoUploadEntity video = new VideoUploadEntity();
 						// 放入session中
 						request.getSession().setAttribute("video", video);// 放入到session中
 
@@ -911,7 +907,7 @@ public class T {
 						// 文件总大小
 						long max = file.getSize();
 						video.setFileSize(max);
-						video.setFilename(file.getOriginalFilename());
+						video.setFileName(file.getOriginalFilename());
 						// 剩余大小
 						long other = max;
 						int len = 0;// 读取写入长度
@@ -921,7 +917,7 @@ public class T {
 						while ((len = in.read(b)) != -1) {
 							out.write(b, 0, len);
 							other -= len;
-							video.setFileSY(other);
+							video.setFileRest(other);
 							// System.out.println("剩余大小:"+other);
 							// 给DTO设置other
 							// dto.setOther(other);
@@ -934,7 +930,7 @@ public class T {
 							float ii3 = (float) zong - shengxia;// 传了多少
 							if (shengxia != 0) {
 								int baifenbi = (int) ((ii3 / zong) * 100);
-								video.setBaifenbi(baifenbi);
+								video.setPercentage(baifenbi);
 								// request.getSession().setAttribute("baifenbi",
 								// baifenbi);
 								// sSystem.out.println(baifenbi);
@@ -969,11 +965,11 @@ public class T {
 			throws IOException {
 		if (request.getSession().getAttribute("video") == null) {
 			// new 出一个实体
-			videoTopEntity video = new videoTopEntity();
-			video.setBaifenbi(0);
-			video.setFilename("请稍后..");
+			VideoUploadEntity video = new VideoUploadEntity();
+			video.setPercentage(0);
+			video.setFileName("请稍后..");
 			video.setFileSize(0);
-			video.setFileSY(0);
+			video.setFileRest(0);
 			video.setTag(0);
 			// 放入session中
 			request.getSession().setAttribute("video", video);// 放入到session中
@@ -984,7 +980,7 @@ public class T {
 			 * System.out.println("线程休息出错"); e.printStackTrace(); }
 			 */
 		} else {
-			videoTopEntity video = (videoTopEntity) request.getSession().getAttribute("video");
+			VideoUploadEntity video = (VideoUploadEntity) request.getSession().getAttribute("video");
 			// 设置编码
 			response.setCharacterEncoding("UTF-8");
 			request.setCharacterEncoding("UTF-8");
@@ -1001,7 +997,7 @@ public class T {
 /*	// 全部订单
 	@RequestMapping("Adminbackgroundshipment")
 	public ModelAndView admin(HttpServletRequest request) {
-		List<ordertableEntity> ordertable = userListServiceImpl.ordertablelist();
+		List<OrderTableEntity> ordertable = userListServiceImpl.ordertablelist();
 		Map model = new HashMap();
 		model.put("ordertable", ordertable);
 		return new ModelAndView("Adminbackgroundshipment", model);
@@ -1027,7 +1023,7 @@ public class T {
 	@RequestMapping("Forum") 
 	public ModelAndView Forum(HttpServletRequest request) {
 		//将所有的论坛全部查询出来
-		List<forumEntity> list =  userListServiceImpl.forumEnt("1");
+		List<ForumEntity> list =  userListServiceImpl.forumEnt("1");
 		Map model = new HashMap();
 		model.put("list", list);
 		return new ModelAndView("Forum", model);
@@ -1037,9 +1033,9 @@ public class T {
 	@RequestMapping("forumReply.sf") 
 	public ModelAndView forumReply(HttpServletRequest request,String forumID) {
 		//将所有的论坛全部查询出来
-		forumEntity user = userListServiceImpl.forumentitymmp(forumID);
+		ForumEntity user = userListServiceImpl.forumentitymmp(forumID);
 		//在根据此ID查询出所有的回复
-		List<forumreplyEntity> forumre = userListServiceImpl.forumreply(forumID);
+		List<ForumReplyEntity> forumre = userListServiceImpl.forumreply(forumID);
 		Map model = new HashMap();
 		model.put("user", user);
 		model.put("forumre", forumre);
@@ -1050,16 +1046,16 @@ public class T {
 	//发布文章AJAX
 	@RequestMapping(value = "forummessage.sf", method = RequestMethod.POST, produces = "text/html;charset=UTF-8") 
 	public  @ResponseBody void forummessage(HttpServletRequest request,HttpServletResponse response,String biaoti , String neirong) throws IOException {
-		forumEntity  forument = new forumEntity();
+		ForumEntity  forument = new ForumEntity();
 		//给实体设值
-		forument.setForumID(GetUUID.getUUID());
-		forument.setForumBT(biaoti);
-		forument.setForummessage(neirong);
-		forument.setForumuserName((String) request.getSession().getAttribute("userName"));
+		forument.setForumId(GetUUID.getUUID());
+		forument.setForumBt(biaoti);
+		forument.setForumMessage(neirong);
+		forument.setForumUserName((String) request.getSession().getAttribute("userName"));
 		forument.setForumTime(GetDataTime.DQtime());
-		forument.setForumliebie("1");//类别也默认为1吧
+		forument.setForumLiebie("1");//类别也默认为1吧
 		forument.setForumAmount("0");
-		forument.setFirumhand((String) request.getSession().getAttribute("userHand"));
+		forument.setForumHand((String) request.getSession().getAttribute("userHand"));
 		String list="";
 		
 					//调用保存方法
@@ -1095,13 +1091,13 @@ public class T {
 						response.setCharacterEncoding("UTF-8");
 						try {
 							String listecho = "";
-							forumreplyEntity forumreply = new forumreplyEntity();
-							forumreply.setReplyhand((String) request.getSession().getAttribute("userHand"));
-							forumreply.setReplyid(GetUUID.getUUID());
-							forumreply.setReplyneirong(neirong);
-							forumreply.setReplytieziid(id);
-							forumreply.setReplytime(GetDataTime.DQtime());
-							forumreply.setReplyname((String) request.getSession().getAttribute("userName"));
+							ForumReplyEntity forumreply = new ForumReplyEntity();
+							forumreply.setReplyHand((String) request.getSession().getAttribute("userHand"));
+							forumreply.setReplyId(GetUUID.getUUID());
+							forumreply.setReplyContent(neirong);
+							forumreply.setReplyTieziId(id);
+							forumreply.setReplyTime(GetDataTime.DQtime());
+							forumreply.setReplyName((String) request.getSession().getAttribute("userName"));
 								//调用方法
 							boolean  bl = messageServiceImpl.forumreply(forumreply);
 							if(bl){

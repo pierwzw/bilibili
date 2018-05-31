@@ -1,10 +1,9 @@
 package com.sf.dao;
 
+import com.sf.entity.ForumEntity;
+import com.sf.entity.ForumReplyEntity;
+import com.sf.entity.MessageEntity;
 import com.sf.entity.ShoppingCart;
-import com.sf.entity.forumEntity;
-import com.sf.entity.forumreplyEntity;
-import com.sf.entity.messageEntity;
-import com.sf.entity.ordertableEntity;
 
 public interface MessageDao {
 	/**
@@ -12,7 +11,7 @@ public interface MessageDao {
 	 * @param message
 	 * @return
 	 */
-	public int message(messageEntity message);
+	public int message(MessageEntity message);
 	
 	
 	
@@ -24,14 +23,14 @@ public interface MessageDao {
 	 * @param forument
 	 * @return
 	 */
-	public int forumfuck(forumEntity forument);
+	public int forumfuck(ForumEntity forument);
 	
 	/**
 	 * 直接保存回复的帖子内容
-	 * @param forument
+	 * @param forumreply
 	 * @return
 	 */
-	public int forumreply(forumreplyEntity forumreply);
+	public int forumreply(ForumReplyEntity forumreply);
 
 	
 }

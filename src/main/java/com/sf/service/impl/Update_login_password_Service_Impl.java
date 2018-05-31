@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.sf.dao.impl.Update_login_password_Impl;
-import com.sf.entity.userEntity;
+import com.sf.entity.UserEntity;
 import com.sf.service.Update_login_password_Service;
 
 @Component
@@ -58,7 +58,7 @@ public class Update_login_password_Service_Impl implements Update_login_password
 	}
 
 	@Override
-	public boolean Update_user(userEntity user) {
+	public boolean Update_user(UserEntity user) {
 		int num = update_login_password_Impl.Update_user(user);
 		if(num>0){
 			return true;
