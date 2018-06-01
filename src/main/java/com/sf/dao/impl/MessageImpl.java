@@ -1,3 +1,4 @@
+/*
 package com.sf.dao.impl;
 
 import com.sf.dao.MessageDao;
@@ -18,7 +19,7 @@ public class MessageImpl implements MessageDao {
 
 
     public int message(MessageEntity message) {
-        //String chaxunSql="insert into user(userID,userName,passWord,userPhone,userState,userEmial,userHand,userPaypassword) values(?,?,?,?,?,?,?,?)";
+        //String chaxunSql="insert into user(userID,userName,passWord,userPhone,userState,userEmail,userHand,userPaypassword) values(?,?,?,?,?,?,?,?)";
 
         String sql = "insert into message(messageID,messagevideoId,"
                 + "messageuserID,messageuserName,message,"
@@ -50,13 +51,15 @@ public class MessageImpl implements MessageDao {
 
 
     @Override
-    public int forumreply(ForumReplyEntity forumreply) {/*
+    public int forumreply(ForumReplyEntity forumreply) {*/
+/*
         public String replyid;//回复ID
 		public String replyneirong;//回帖内容
 		public String replytime;//回帖时间
 		public String replyhand;//回帖人头像
 		public String replytieziid;//回复帖子的ID
-		*/
+		*//*
+
         String sql = "insert into forumreply (replyid,replyneirong,replytime,replyhand,replytieziid,replyname) values (?,?,?,?,?,?)";
 
         int num = jdbcTemplate.getJdbcTemplate().update(sql, new Object[]{forumreply.getReplyId(), forumreply.getReplyContent(), forumreply.getReplyTime(), forumreply.getReplyHand(), forumreply.getReplyTieziId(), forumreply.getReplyName()});
@@ -65,3 +68,4 @@ public class MessageImpl implements MessageDao {
 
 
 }
+*/

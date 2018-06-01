@@ -44,9 +44,9 @@ $(document).ready(function(){
 			if(userQQ==null||userQQ==""){
 				userQQ="空";
 			}
-			var userEmial = m.userEmial;
-			if(userEmial==null||userEmial==""){
-				userEmial="空";
+			var userEmail = m.userEmail;
+			if(userEmail==null||userEmail==""){
+				userEmail="空";
 			}
 				//开始组装HTML
 				html+="<form action='updateuser.sf' method='post'>";
@@ -58,7 +58,7 @@ $(document).ready(function(){
 				html+="用户地址: <input type='text' name='addr' value='"+userAddress+"'></br>";
 				html+="用户手机: <input type='text' name='userPhone' value='"+m.userPhone+"'></br>";
 				html+="用户QQ: <input type='text'  name='userQQ' value='"+userQQ+"'></br>";
-				html+="用户邮箱: <input type='text' name='userEmial' value='"+userEmial+"'></br>";
+				html+="用户邮箱: <input type='text' name='userEmail' value='"+userEmail+"'></br>";
 				html+="<input type='submit' id='buttont' value='修改'> <a href='Houtai.sf'>取消</a>";
 				html+="</form>";
 			});

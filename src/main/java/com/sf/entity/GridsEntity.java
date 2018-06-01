@@ -7,7 +7,7 @@ public class GridsEntity {
 	public String girdsName;//商品名字
 	public String girdsPrice;//商品价格
 	public String girdsImg;//商品图片地址
-	public int girdsStorage;//商品库存
+	public int    girdsStorage;//商品库存
 
 	public String getGridsID() {
 		return gridsID;

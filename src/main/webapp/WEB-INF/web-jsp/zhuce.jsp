@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										class="control-group" id="email_input">
 										<div class="input_add_long_background">
 											<input class="register_input" type="text" id="email"
-												name="userEmial" maxLength="50"
+												name="userEmail" maxLength="50"
 												onblur="__changeUserName('email');">
 										</div>
 									</span> <label class="tips">请输入您常用的邮箱</label>

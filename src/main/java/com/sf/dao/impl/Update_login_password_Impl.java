@@ -1,3 +1,4 @@
+/*
 package com.sf.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,12 @@ public class Update_login_password_Impl implements Update_login_password_Dao {
 	public int Update_login_Emial(String userName, String emial, String newemial) {
 		int what=0;
 		//先查询出用户名和密码是否匹配 才能更改密码
-		String sql="select count(*) from user where userName=? and userEmial=?";
+		String sql="select count(*) from user where userName=? and userEmail=?";
 		int num=jdbcTemplate.getJdbcTemplate().queryForObject(sql, new Object[]{userName,emial},Integer.class);
 			if(num>0){
 				//UPDATE user set `newpassWord`="111" where userName="admin";
 				//此用户存在  并且密码匹配 可以进行修改密码
-				String update="update user set userEmial=? where userName=?";
+				String update="update user set userEmail=? where userName=?";
 				what=jdbcTemplate.getJdbcTemplate().update(update,new Object[]{newemial,userName});
 			}else{
 				return what;
@@ -105,20 +106,22 @@ public class Update_login_password_Impl implements Update_login_password_Dao {
 		//userMingzi = "佘峰T" ,usersex = "男" , 
 		//passWord = "123321aaa" , userAddress = "四川省遂宁" ,
 		//userPhone = "17583108191" , userQQ = "794799102" , 
-		//userEmial = "794799102@qq.com" where
+		//userEmail = "794799102@qq.com" where
 		//userID = "004bcfc8d4bd407bb1a114785539006f"
+*/
 /*		System.out.println(user.getUserID());
 		System.out.println(user.getPassWord());
 		System.out.println(user.getUserMingzi());
 		System.out.println(user.getUsersex());
 		System.out.println(user.getUserPhone());
 		System.out.println(user.getUserQQ());
-		System.out.println(user.getUserEmial());
+		System.out.println(user.getuserEmail());
 		System.out.println(user.getUserAddress());
-		System.out.println(user.getUserName());*/
+		System.out.println(user.getUserName());*//*
+
 		
-		String sql="update  user set userName = ? , userMingzi = ? ,usersex = ? , passWord = ? , userAddress = ? ,userPhone = ? , userQQ = ? , userEmial = ?   where userID = ?";
-		int bl = jdbcTemplate.getJdbcTemplate().update(sql,new Object[]{user.getUserName(),user.getUserMingzi(),user.getUserSex(),user.getPassWord(),user.getUserAddress(),user.getUserPhone(),user.getUserQQ(),user.getUserEmial(),user.getUserId()});
+		String sql="update  user set userName = ? , userMingzi = ? ,usersex = ? , passWord = ? , userAddress = ? ,userPhone = ? , userQQ = ? , userEmail = ?   where userID = ?";
+		int bl = jdbcTemplate.getJdbcTemplate().update(sql,new Object[]{user.getUserName(),user.getUserMingzi(),user.getUserSex(),user.getPassWord(),user.getUserAddress(),user.getUserPhone(),user.getUserQQ(),user.getuserEmail(),user.getUserId()});
 		return bl;
 	}
 
@@ -140,3 +143,4 @@ public class Update_login_password_Impl implements Update_login_password_Dao {
 
 
 }
+*/

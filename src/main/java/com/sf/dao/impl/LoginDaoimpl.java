@@ -1,3 +1,4 @@
+/*
 package com.sf.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,3 +97,4 @@ public class LoginDaoimpl implements LoginDao {
 	}
 
 }
+*/

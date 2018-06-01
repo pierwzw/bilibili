@@ -20,7 +20,7 @@ public class RegisterRequest {
 
 	@RequestMapping("register.sf")
 	public String web3(UserEntity user, HttpServletRequest request,String yanzheng) {
-		// System.out.println(user.getUserEmial());
+		// System.out.println(user.getuserEmail());
 		// System.out.println("测试是否进入此方法");
 
 		// 设置一个默认的用户ID UUID
@@ -40,7 +40,7 @@ public class RegisterRequest {
 		// 邮箱 正则表达式
 		String email = "[a-zA-Z0-9_\\-\\.]+@(sina|qq|163)+(\\.(com|cn|org|edu|hk))";
 		Pattern regexemail = Pattern.compile(email);
-		Matcher matcheremial = regexemail.matcher(user.getUserEmial());
+		Matcher matcheremial = regexemail.matcher(user.getuserEmail());
 		boolean emial = matcheremial.matches();
 		//验证用户账号
 		String userNmae= "^[a-zA-Z]\\w{5,17}$";

@@ -11,7 +11,7 @@ public class UserEntity {
 	private String userAddress;//地址
 	private String userPhone;//手机
 	private String userQQ;//qq
-	private String userEmial;//邮箱
+	private String userEmail;//邮箱
 	private String userCollection;//收藏
 	private String userState;//状态
 	private String userLoginTime;//最后登录时间
@@ -99,12 +99,12 @@ public class UserEntity {
 		this.userQQ = userQQ;
 	}
 
-	public String getUserEmial() {
-		return userEmial;
+	public String getuserEmail() {
+		return userEmail;
 	}
 
-	public void setUserEmial(String userEmial) {
-		this.userEmial = userEmial;
+	public void setuserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	public String getUserCollection() {

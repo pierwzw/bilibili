@@ -3,66 +3,66 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.sf.dao.UpdateMapper">
-    <update id="updateRMB" parameterMap="java.util.Map">
-		update user set userRMB=#{userRMB} where userName=#{userName}
+    <update id="updateRMB" parameterType="java.util.Map">
+		update user set userRMB=#{updateRMB} where userName=#{userName}
     </update>
 
     <insert id="insertOrderTable" parameterType="com.sf.entity.OrderTableEntity">
 		insert into ordertable (OrderID,OrderuserName,OrderIgridsName,OrdergridsImg,OrderzongRMB,OrderStat,OrderTime,OrderAddr)
-		values(#{orderId}, #{orderUserName}, #{orderIgridsName}, #{ordergridsImg}, #{orderzongRMB}, #{orderStat}, #{orderTime}, #{orderAddr})
+		values(#{orderId}, #{orderUserName}, #{orderGridsName}, #{orderGridsImg}, #{orderTotalPrice}, #{orderState}, #{orderTime}, #{orderAddr})
     </insert>
 
-    <update id="setOrderStat" parameterMap="java.util.Map">
+    <update id="setOrderStat" parameterType="java.util.Map">
         update ordertable set OrderStat=#{orderState} where OrderID=#{orderId}
     </update>
 
     <insert id="insertMessage" parameterType="com.sf.entity.MessageEntity">
         insert into message(messageID,messagevideoId,messageuserID,messageuserName,message,messageTime,messageHand)
-        values(#{messageId}, #{messagevideoId}, #{messageUserId}, #{messageUserName}, #{message}, #{messageTime}, #{messageHand})
+        values(#{messageId}, #{messageVideoId}, #{messageUserId}, #{messageUserName}, #{message}, #{messageTime}, #{messageHand})
     </insert>
 
-    <insert id="insertShoppingCart" parameterType="com.sf.entity.ShoppingCart;">
+    <insert id="insertShoppingCart" parameterType="com.sf.entity.ShoppingCart">
         insert into shoppingcart(cartID,userName,shoopingID,shoopingName,shoopingImg,shoopingjiage)
-        values (#{cartId}, #{userName}, #{shoopingId}, #{shoopingName}, #{shoopingImg}, #{shoopingJiaGe})
+        values (#{cartId}, #{userName}, #{shoppingId}, #{shoppingName}, #{shoppingImg}, #{shoppingPrice})
     </insert>
 
     <insert id="insertForum" parameterType="com.sf.entity.ForumEntity">
         insert into forum(forumID,forumBT,forummessage,forumuserName,forumTime,forumliebie,forumAmount,firumhand)
-        values (#{forumId}, #{forumBt}, #{forumMessage}, #{forumUserName}, #{forumTime}, #{forumLieBie}, #{forumAmount}, #{firumHand})
+        values (#{forumId}, #{forumBt}, #{forumMessage}, #{forumUserName}, #{forumTime}, #{forumLiebie}, #{forumAmount}, #{forumHand})
     </insert>
 
-    <insert id="insertForumReply" parameterMap="com.sf.entity.ForumReplyEntity">
+    <insert id="insertForumReply" parameterType="com.sf.entity.ForumReplyEntity">
         insert into forumreply (replyid,replyneirong,replytime,replyhand,replytieziid,replyname)
-        values (#{replyId}, #{replyNeiRong}, #{replyTime}, #{replyHand}, #{replyTieZiId}, #{replyName})
+        values (#{replyId}, #{replyContent}, #{replyTime}, #{replyHand}, #{replyTieziId}, #{replyName})
     </insert>
     
-    <insert id="registerUser" parameterMap="com.sf.entity.UserEntity">
-        insert into user(userID,userName,passWord,userPhone,userState,userEmial,userHand,userPaypassword)
-        values(#{userId}, #{userName}, #{passWord}, #{userPhone}, #{userState}, #{userEmial}, #{userHand}, #{userPaypassword})
+    <insert id="registerUser" parameterType="com.sf.entity.UserEntity">
+        insert into user(userID,userName,passWord,userPhone,userState,userEmail,userHand,userPaypassword)
+        values(#{userId}, #{userName}, #{passWord}, #{userPhone}, #{userState}, #{userEmail}, #{userHand}, #{userPayPassword})
     </insert>
     
-    <update id="updatePassword" parameterMap="java.util.Map">
+    <update id="updatePassword" parameterType="java.util.Map">
         update user set passWord=#{passWord} where userName=#{userName}
     </update>
 
-    <update id="updateEmail" parameterMap="java.util.Map">
-        update user set userEmial=#{userEmial} where userName=#{userName}
+    <update id="updateEmail" parameterType="java.util.Map">
+        update user set userEmail=#{userEmail} where userName=#{userName}
     </update>
 
-    <update id="updatePhone" parameterMap="java.util.Map">
+    <update id="updatePhone" parameterType="java.util.Map">
         update user set userPhone=#{userPhone} where userName=#{userName}
     </update>
 
-    <update id="updatePayPassword" parameterMap="java.util.Map">
-        update user set userPaypassword=#{userPaypassword} where userName=#{userName}
+    <update id="updatePayPassword" parameterType="java.util.Map">
+        update user set userPaypassword=#{userPayPassword} where userName=#{userName}
     </update>
 
-    <update id="updateUserHand" parameterMap="java.util.Map">
+    <update id="updateUserHand" parameterType="java.util.Map">
         update user set userHand=#{userHand} where userName=#{userName}
     </update>
     
     <update id="updateUserInfo" parameterType="com.sf.entity.UserEntity">
-        update user set userName = #{userName} , userMingzi = #{userMingzi} ,usersex = #{usersex} , passWord = #{passWord} , userAddress = #{userAddress} ,userPhone = #{userPhone} , userQQ = #{userQQ} , userEmial = #{userEmial}   where userID = #{userID}
+        update user set userName = #{userName} , userMingzi = #{userMingzi} ,usersex = #{userSex} , passWord = #{passWord} , userAddress = #{userAddress} ,userPhone = #{userPhone} , userQQ = #{userQQ} , userEmail = #{userEmail}   where userID = #{userId}
     </update>
     
     <update id="updateUserPartInfo" parameterType="com.sf.entity.UserEntity">

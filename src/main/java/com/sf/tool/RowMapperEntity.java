@@ -17,7 +17,7 @@ public class RowMapperEntity implements RowMapper<UserEntity>{
 		user.setUserSex(arg0.getString("usersex"));
 		user.setUserAddress(arg0.getString("userAddress"));
 		user.setUserCollection(arg0.getString("userCollection"));
-		user.setUserEmial(arg0.getString("userEmial"));
+		user.setuserEmail(arg0.getString("userEmail"));
 		user.setUserHand(arg0.getString("userHand"));
 		user.setUserId(arg0.getString("userID"));
 		user.setUserIp(arg0.getString("userIP"));

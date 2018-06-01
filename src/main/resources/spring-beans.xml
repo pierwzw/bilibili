@@ -3,5 +3,5 @@
 
 <beans>
     <import resource="spring-mybatis.xml"/>
-    <<!--import resource="database.xml"/>-->
+    <!--import resource="database.xml"/>-->
 </beans>

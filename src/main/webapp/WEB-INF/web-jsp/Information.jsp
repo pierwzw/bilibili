@@ -167,7 +167,7 @@ window.onload=function(){
 				<p>
 					<em>用户邮箱：</em> <input type="text"
 						style="height: 23px; border: 1px solid #eaeaea; width: 140px"
-						value="${user.userEmial}" onfocus=this.blur()>
+						value="${user.userEmail}" onfocus=this.blur()>
 				</p>
 				<p>
 					<em>最后一次登录时间：</em> <input type="text"

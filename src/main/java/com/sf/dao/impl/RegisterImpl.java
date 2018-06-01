@@ -1,3 +1,4 @@
+/*
 package com.sf.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,12 @@ public class RegisterImpl implements RegisterDao {
 				System.out.println("此用户被注册");
 			}else{
 				//开始注册
-				String chaxunSql="insert into user(userID,userName,passWord,userPhone,userState,userEmial,userHand,userPaypassword) values(?,?,?,?,?,?,?,?)";
-				register=jdbcTemplate.getJdbcTemplate().update(chaxunSql,new Object[]{user.getUserId(),user.getUserName(),user.getPassWord(),user.getUserPhone(),user.getUserState(),user.getUserEmial(),user.getUserHand(),user.getUserPayPassword()});
+				String chaxunSql="insert into user(userID,userName,passWord,userPhone,userState,userEmail,userHand,userPaypassword) values(?,?,?,?,?,?,?,?)";
+				register=jdbcTemplate.getJdbcTemplate().update(chaxunSql,new Object[]{user.getUserId(),user.getUserName(),user.getPassWord(),user.getUserPhone(),user.getUserState(),user.getuserEmail(),user.getUserHand(),user.getUserPayPassword()});
 				
 			}
 		return register;
 	}
 
 }
+*/

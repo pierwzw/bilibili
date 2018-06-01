@@ -1,3 +1,4 @@
+/*
 package com.sf.db;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,3 +15,4 @@ public class Data_jdbcTemplate {
 		}
 		
 }
+*/

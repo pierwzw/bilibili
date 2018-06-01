@@ -535,7 +535,7 @@ public class T {
 
 	@RequestMapping("updateuser.sf")
 	public String updateuser(String userID, String userName, String userzhenshiName, String userSex, String passWord,
-			String addr, String userPhone, String userQQ, String userEmial, HttpServletRequest request,
+			String addr, String userPhone, String userQQ, String userEmail, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 
 		String echo = "";
@@ -551,7 +551,7 @@ public class T {
 		// userMingzi = "佘峰T" ,usersex = "男" ,
 		// passWord = "123321aaa" , userAddress = "四川省遂宁" ,
 		// userPhone = "17583108191" , userQQ = "794799102" ,
-		// userEmial = "794799102@qq.com" where
+		// userEmail = "794799102@qq.com" where
 		// userID = "004bcfc8d4bd407bb1a114785539006f"
 
 		UserEntity user = new UserEntity();
@@ -566,7 +566,7 @@ public class T {
 		user.setUserAddress(addr);
 		user.setUserPhone(userPhone);
 		user.setUserQQ(userQQ);
-		user.setUserEmial(userEmial);
+		user.setuserEmail(userEmail);
 		user.setUserId(userID);
 		boolean bl = update_login_password_Service_Impl.Update_user(user);
 		if (bl) {

@@ -27,6 +27,10 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 				//这个是不带参数的
 				addr = request.getRequestURI();
 			}
+			if ("/null".equals(addr)){
+				response.sendRedirect("login.sf");
+				return false;
+			}
 			String jiequ = addr.substring(9);
 			// jiequ  这个地址是用户想访问的地址
 			request.getSession().setAttribute("jiequ", jiequ);

@@ -1,3 +1,4 @@
+/*
 package com.sf.dao.impl;
 
 
@@ -69,7 +70,8 @@ public class UserListDaoImpl implements UserListDao {
 	@Override
 	public List<UserEntity> userlistpage(int pageInt) {
 		List<UserEntity> user=null;
-		/*limit arg1,arg2 arg1指定查询记录的起始位置；arg2用于指定查询数据所返回的记录数
+		*/
+/*limit arg1,arg2 arg1指定查询记录的起始位置；arg2用于指定查询数据所返回的记录数
 		select * from tablename limit 0,1
 		即取出第一条记录。
 		select * from tablename limit 1,1
@@ -81,7 +83,8 @@ public class UserListDaoImpl implements UserListDao {
 		这个 limit 是实现分页的关键，每次取出数据库的内容，分页在页面上怎么去操作实现的，这好像很麻烦，要是每次数据库取出特定页的数据就好了，limit 实现这样的功能，对数据升序或降序排序后，利用 SQL 取出特定页的数据，直接显示就行了
 
 		比如数据库返回的数据是
-		*/
+		*//*
+
 		
 		String sql="SELECT * FROM user LIMIT ?,15";
 		 user=jdbcTemplate.getJdbcTemplate().query(sql,new Object[]{pageInt},new RowMapperEntity());		
@@ -261,3 +264,4 @@ public class UserListDaoImpl implements UserListDao {
 
 
 }
+*/

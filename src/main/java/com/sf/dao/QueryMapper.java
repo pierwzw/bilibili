@@ -1,6 +1,7 @@
 package com.sf.dao;
 
 import com.sf.entity.*;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.core.Ordered;
 
 import javax.swing.text.StyledEditorKit;
@@ -11,32 +12,32 @@ import java.util.List;
  * @Date 2018/5/31 20:27
  */
 public interface QueryMapper {
-    UserEntity queryUserByUserNameAndPassWord(String userName, String passWord);
-    UserEntity queryUserByUserNameAndEmail(String userName, String userEmail);
-    UserEntity queryUserByUserNameAndPhone(String userName, String userPhone);
-    UserEntity queryUserByUserNameAndPayPassword(String userName, String userPayPassword);
-    UserEntity queryUserByUserNameAndUserHand(String userName, String userHand);
+    UserEntity queryUserByUserNameAndPassWord(@Param("userName") String userName, @Param("passWord") String passWord);
+    UserEntity queryUserByUserNameAndEmail(@Param("userName") String userName, @Param("userEmail") String userEmail);
+    UserEntity queryUserByUserNameAndPhone(@Param("userName") String userName, @Param("userPhone") String userPhone);
+    UserEntity queryUserByUserNameAndPayPassword(@Param("userName") String userName, @Param("userPayPassword") String userPayPassword);
+    UserEntity queryUserByUserNameAndUserHand(@Param("userName") String userName, @Param("userHand") String userHand);
     List<UserEntity> queryUserByUserName(String userName);
     List<VideoEntity> queryVideoByCategory(String videoCategory);
     List<VideoEntity> queryVideoLimit(int limit);
-    List<MessageEntity> queryMessageByMessagevideoId(String messagevideoId);
+    List<MessageEntity> queryMessageByMessageVideoId(String messageVideoId);
     List<UserEntity> queryUserPagination(int startPage);
     List<UserEntity> queryUserByUserMingzi(String userMoHu);
     List<UserEntity> queryUserByPhone(String userPhone);
     List<UserEntity> queryUserByUserId(String userId);
     List<UserEntity> queryUserByUserState(String userState);
-    List<VideoEntity> queryVideoPagination(String videoCategory, int startPage, int numPerPage);
+    List<VideoEntity> queryVideoPagination(@Param("videoCategory") String videoCategory, @Param("startPage") int startPage, @Param("numPerPage") int numPerPage);
     int queryVideoNum();
     List<GridsEntity> queryGrids();
-    List<GridsEntity> queryGridsByGridsId(String gridsId);
+    GridsEntity queryGridsByGridsId(String gridsId);
     List<ShoppingCart> queryShoppingCartByUserName(String userName);
     List<OrderTableEntity> queryOrderTableByUserName(String userName);
     List<OrderTableEntity> queryOrderTable();
     List<OrderTableEntity> queryOrderTableByOrderState(String orderState);
-    List<OrderTableEntity> queryOrderTableByOrderIdAndOrderState(String orderId, String orderState);
+    List<OrderTableEntity> queryOrderTableByOrderIdAndOrderState(@Param("orderId") String orderId, @Param("orderState") String orderState);
     int queryOrderTableCount();
     List<ForumEntity> queryForumByForumLiebie(String forumLiebie);
-    List<ForumEntity> queryForumByForumId(String forumId);
+    ForumEntity queryForumByForumId(String forumId);
     int queryUserCount();
     List<ForumReplyEntity> queryForumReplyByForumReplyId(String replyTieziId);
 
