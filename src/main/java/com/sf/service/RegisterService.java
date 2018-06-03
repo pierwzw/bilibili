@@ -4,7 +4,7 @@ import com.sf.entity.UserEntity;
 
 public interface RegisterService {
 	
-	public boolean RegisterService(UserEntity user);
+	public boolean RegisterService(UserEntity user) ;
 	
 	
 }

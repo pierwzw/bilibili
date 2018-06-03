@@ -896,7 +896,7 @@ public class T {
 
 						System.out.println("文件总大小" + file.getSize());
 						// 文件保存路径
-						String filePath = "C:/videotest/" + file.getOriginalFilename();
+						String filePath = "E:\\下载\\BILIBILI\\bilibili\\src\\main\\webapp\\static\\videolook" + file.getOriginalFilename();
 						System.out.println(filePath);
 						/******************** 测试 **************************/
 						File storeFile = new File(filePath);

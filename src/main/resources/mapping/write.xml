@@ -3,11 +3,196 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.sf.dao.UpdateMapper">
+    <!--以下的主键的<result/>可以改为<id/>
+    如：<id property="id" column="user_id"/>
+    -->
+    <resultMap type="com.sf.entity.UserEntity" id="UserMap">
+        <result property="userId" column="userID"/>
+        <result property="userMingzi" column="userMingzi"/>
+        <result property="userName" column="userName"/>
+        <result property="passWord" column="usersex"/>
+        <result property="userBankNo" column="passWord"/>
+        <result property="userSex" column="userHand"/>
+        <result property="userHand" column="userAddress"/>
+        <result property="userAddress" column="userPhone"/>
+        <result property="userPhone" column="userQQ"/>
+        <result property="userQQ" column="userEmail"/>
+        <result property="userEmail" column="userCollection"/>
+        <result property="userBankNo" column="useryinghangka"/>
+        <result property="userState" column="userState"/>
+        <result property="userLoginTime" column="userLoginTime"/>
+        <result property="userIp" column="userIP"/>
+        <result property="userPayPassword" column="userPaypassword"/>
+        <result property="userBalance" column="userRMB"/>
+    </resultMap>
+
+    <resultMap type="com.sf.entity.VideoEntity" id="VideoMap">
+        <result property="videoId" column="videoID"/>
+        <result property="videoName" column="videoName"/>
+        <result property="videoImage" column="videoImage"/>
+        <result property="videoAddress" column="videoAddress"/>
+        <result property="videoLookTime" column="videolookTime"/>
+        <result property="videoCollection" column="videoCollection"/>
+        <result property="videoLeaving" column="videoLeaving"/>
+        <result property="videoTime" column="videoTime"/>
+        <result property="videoState" column="videoState"/>
+        <result property="videoCategory" column="videocAtegory"/>
+    </resultMap>
+
+    <resultMap type="com.sf.entity.OrderTableEntity" id="OrderMap">
+        <result property="orderId" column="OrderID"/>
+        <result property="orderUserName" column="OrderuserName"/>
+        <result property="orderGridsName" column="OrderIgridsName"/>
+        <result property="orderGridsImg" column="OrdergridsImg"/>
+        <result property="orderTotalPrice" column="OrderzongRMB"/>
+        <result property="orderState" column="OrderStat"/>
+        <result property="orderTime" column="OrderTime"/>
+        <result property="orderAddr" column="OrderAddr"/>
+    </resultMap>
+
+    <resultMap type="com.sf.entity.GridsEntity" id="GridsMap">
+        <result property="gridsID" column="gridsID"/>
+        <result property="girdsName" column="girdsName"/>
+        <result property="girdsPrice" column="girdsjiage"/>
+        <result property="girdsImg" column="girdsimg"/>
+        <result property="girdsStorage" column="girdskucun"/>
+    </resultMap>
+
+    <resultMap type="com.sf.entity.ForumEntity" id="ForumMap">
+        <result property="forumId" column="forumID"/>
+        <result property="forumBt" column="forumBT"/>
+        <result property="forumMessage" column="forummessage"/>
+        <result property="forumUserName" column="forumuserName"/>
+        <result property="forumTime" column="forumTime"/>
+        <result property="forumLiebie" column="forumliebie"/>
+        <result property="forumAmount" column="forumAmount"/>
+        <result property="forumHand" column="firumhand"/>
+    </resultMap>
+
+    <resultMap type="com.sf.entity.ForumReplyEntity" id="ForumReplyMap">
+        <result property="replyId" column="replyid"/>
+        <result property="replyContent" column="replyneirong"/>
+        <result property="replyTime" column="replytime"/>
+        <result property="replyHand" column="replyhand"/>
+        <result property="replyTieziId" column="replytieziid"/>
+        <result property="replyName" column="replyname"/>
+    </resultMap>
+
+    <resultMap type="com.sf.entity.MessageEntity" id="MessageMap">
+        <result property="messageId" column="messageID"/>
+        <result property="messageVideoId" column="messagevideoID"/>
+        <result property="messageUserId" column="messageuserID"/>
+        <result property="messageUserName" column="messageuserName"/>
+        <result property="message" column="message"/>
+        <result property="messageTime" column="messageTime"/>
+        <result property="messageHand" column="messageHand"/>
+    </resultMap>
+
+    <resultMap type="com.sf.entity.ShoppingCart" id="ShoppingCartMap">
+        <result property="cartId" column="cartID"/>
+        <result property="userName" column="userName"/>
+        <result property="shoppingId" column="shoopingID"/>
+        <result property="shoppingName" column="shoopingName"/>
+        <result property="shoppingImg" column="shoopingImg"/>
+        <result property="shoppingPrice" column="shoopingjiage"/>
+    </resultMap>
+
+    <parameterMap type="com.sf.entity.UserEntity" id="UserParamMap">
+        <parameter property="userId"            resultMap="UserMap"/>
+        <parameter property="userMingzi"        resultMap="UserMap"/>
+        <parameter property="userName"          resultMap="UserMap"/>
+        <parameter property="passWord"          resultMap="UserMap"/>
+        <parameter property="userBankNo"        resultMap="UserMap"/>
+        <parameter property="userSex"           resultMap="UserMap"/>
+        <parameter property="userHand"          resultMap="UserMap"/>
+        <parameter property="userAddress"       resultMap="UserMap"/>
+        <parameter property="userPhone"         resultMap="UserMap"/>
+        <parameter property="userQQ"            resultMap="UserMap"/>
+        <parameter property="userEmail"         resultMap="UserMap"/>
+        <parameter property="userBankNo"        resultMap="UserMap"/>
+        <parameter property="userState"         resultMap="UserMap"/>
+        <parameter property="userLoginTime"     resultMap="UserMap"/>
+        <parameter property="userIp"            resultMap="UserMap"/>
+        <parameter property="userPayPassword"   resultMap="UserMap"/>
+        <parameter property="userBalance"       resultMap="UserMap"/>
+    </parameterMap>
+
+    <parameterMap type="com.sf.entity.VideoEntity" id="VideoParamMap">
+        <parameter property="videoId"          resultMap="VideoMap"/>
+        <parameter property="videoName"        resultMap="VideoMap"/>
+        <parameter property="videoImage"       resultMap="VideoMap"/>
+        <parameter property="videoAddress"     resultMap="VideoMap"/>
+        <parameter property="videoLookTime"    resultMap="VideoMap"/>
+        <parameter property="videoCollection"  resultMap="VideoMap"/>
+        <parameter property="videoLeaving"     resultMap="VideoMap"/>
+        <parameter property="videoTime"        resultMap="VideoMap"/>
+        <parameter property="videoState"       resultMap="VideoMap"/>
+        <parameter property="videoCategory"    resultMap="VideoMap"/>
+    </parameterMap>
+
+    <parameterMap type="com.sf.entity.OrderTableEntity" id="OrderParamMap">
+        <parameter property="orderId"           resultMap="OrderMap"/>
+        <parameter property="orderUserName"     resultMap="OrderMap"/>
+        <parameter property="orderGridsName"    resultMap="OrderMap"/>
+        <parameter property="orderGridsImg"     resultMap="OrderMap"/>
+        <parameter property="orderTotalPrice"   resultMap="OrderMap"/>
+        <parameter property="orderState"        resultMap="OrderMap"/>
+        <parameter property="orderTime"         resultMap="OrderMap"/>
+        <parameter property="orderAddr"         resultMap="OrderMap"/>
+    </parameterMap>
+
+    <parameterMap type="com.sf.entity.GridsEntity" id="GridsParamMap">
+        <parameter property="gridsID"           resultMap="GridsMap"/>
+        <parameter property="girdsName"         resultMap="GridsMap"/>
+        <parameter property="girdsPrice"        resultMap="GridsMap"/>
+        <parameter property="girdsImg"          resultMap="GridsMap"/>
+        <parameter property="girdsStorage"      resultMap="GridsMap"/>
+    </parameterMap>
+
+    <parameterMap type="com.sf.entity.ForumEntity" id="ForumParamMap">
+        <parameter property="forumId"           resultMap="ForumMap"/>
+        <parameter property="forumBt"           resultMap="ForumMap"/>
+        <parameter property="forumMessage"      resultMap="ForumMap"/>
+        <parameter property="forumUserName"     resultMap="ForumMap"/>
+        <parameter property="forumTime"         resultMap="ForumMap"/>
+        <parameter property="forumLiebie"       resultMap="ForumMap"/>
+        <parameter property="forumAmount"       resultMap="ForumMap"/>
+        <parameter property="forumHand"         resultMap="ForumMap"/>
+    </parameterMap>
+
+    <parameterMap type="com.sf.entity.ForumReplyEntity" id="ForumReplyParamMap">
+        <parameter property="replyId"           resultMap="ForumReplyMap"/>
+        <parameter property="replyContent"      resultMap="ForumReplyMap"/>
+        <parameter property="replyTime"         resultMap="ForumReplyMap"/>
+        <parameter property="replyHand"         resultMap="ForumReplyMap"/>
+        <parameter property="replyTieziId"      resultMap="ForumReplyMap"/>
+        <parameter property="replyName"         resultMap="ForumReplyMap"/>
+    </parameterMap>
+
+    <parameterMap type="com.sf.entity.MessageEntity" id="MessageParamMap">
+        <parameter property="messageId"         resultMap="MessageMap"/>
+        <parameter property="messageVideoId"    resultMap="MessageMap"/>
+        <parameter property="messageUserId"     resultMap="MessageMap"/>
+        <parameter property="messageUserName"   resultMap="MessageMap"/>
+        <parameter property="message"           resultMap="MessageMap"/>
+        <parameter property="messageTime"       resultMap="MessageMap"/>
+        <parameter property="messageHand"       resultMap="MessageMap"/>
+    </parameterMap>
+
+    <parameterMap type="com.sf.entity.ShoppingCart" id="ShoppingCartParamMap">
+        <parameter property="cartId"           resultMap="ShoppingCartMap"/>
+        <parameter property="userName"         resultMap="ShoppingCartMap"/>
+        <parameter property="shoppingId"       resultMap="ShoppingCartMap"/>
+        <parameter property="shoppingName"     resultMap="ShoppingCartMap"/>
+        <parameter property="shoppingImg"      resultMap="ShoppingCartMap"/>
+        <parameter property="shoppingPrice"    resultMap="ShoppingCartMap"/>
+    </parameterMap>
+
     <update id="updateRMB" parameterType="java.util.Map">
 		update user set userRMB=#{updateRMB} where userName=#{userName}
     </update>
 
-    <insert id="insertOrderTable" parameterType="com.sf.entity.OrderTableEntity">
+    <insert id="insertOrderTable" parameterMap="OrderParamMap">
 		insert into ordertable (OrderID,OrderuserName,OrderIgridsName,OrdergridsImg,OrderzongRMB,OrderStat,OrderTime,OrderAddr)
 		values(#{orderId}, #{orderUserName}, #{orderGridsName}, #{orderGridsImg}, #{orderTotalPrice}, #{orderState}, #{orderTime}, #{orderAddr})
     </insert>
@@ -16,27 +201,27 @@
         update ordertable set OrderStat=#{orderState} where OrderID=#{orderId}
     </update>
 
-    <insert id="insertMessage" parameterType="com.sf.entity.MessageEntity">
+    <insert id="insertMessage" parameterMap="MessageParamMap">
         insert into message(messageID,messagevideoId,messageuserID,messageuserName,message,messageTime,messageHand)
         values(#{messageId}, #{messageVideoId}, #{messageUserId}, #{messageUserName}, #{message}, #{messageTime}, #{messageHand})
     </insert>
 
-    <insert id="insertShoppingCart" parameterType="com.sf.entity.ShoppingCart">
+    <insert id="insertShoppingCart" parameterMap="ShoppingCartParamMap">
         insert into shoppingcart(cartID,userName,shoopingID,shoopingName,shoopingImg,shoopingjiage)
         values (#{cartId}, #{userName}, #{shoppingId}, #{shoppingName}, #{shoppingImg}, #{shoppingPrice})
     </insert>
 
-    <insert id="insertForum" parameterType="com.sf.entity.ForumEntity">
+    <insert id="insertForum" parameterMap="ForumParamMap">
         insert into forum(forumID,forumBT,forummessage,forumuserName,forumTime,forumliebie,forumAmount,firumhand)
         values (#{forumId}, #{forumBt}, #{forumMessage}, #{forumUserName}, #{forumTime}, #{forumLiebie}, #{forumAmount}, #{forumHand})
     </insert>
 
-    <insert id="insertForumReply" parameterType="com.sf.entity.ForumReplyEntity">
+    <insert id="insertForumReply" parameterMap="ForumReplyParamMap">
         insert into forumreply (replyid,replyneirong,replytime,replyhand,replytieziid,replyname)
         values (#{replyId}, #{replyContent}, #{replyTime}, #{replyHand}, #{replyTieziId}, #{replyName})
     </insert>
     
-    <insert id="registerUser" parameterType="com.sf.entity.UserEntity">
+    <insert id="registerUser" parameterMap="UserParamMap">
         insert into user(userID,userName,passWord,userPhone,userState,userEmail,userHand,userPaypassword)
         values(#{userId}, #{userName}, #{passWord}, #{userPhone}, #{userState}, #{userEmail}, #{userHand}, #{userPayPassword})
     </insert>
@@ -61,11 +246,11 @@
         update user set userHand=#{userHand} where userName=#{userName}
     </update>
     
-    <update id="updateUserInfo" parameterType="com.sf.entity.UserEntity">
+    <update id="updateUserInfo" parameterMap="UserParamMap">
         update user set userName = #{userName} , userMingzi = #{userMingzi} ,usersex = #{userSex} , passWord = #{passWord} , userAddress = #{userAddress} ,userPhone = #{userPhone} , userQQ = #{userQQ} , userEmail = #{userEmail}   where userID = #{userId}
     </update>
     
-    <update id="updateUserPartInfo" parameterType="com.sf.entity.UserEntity">
+    <update id="updateUserPartInfo" parameterMap="UserParamMap">
         update user set userMingzi=#{userMingzi},userPhone=#{userPhone},userAddress=#{userAddress} where userName=#{userName}
     </update>
 

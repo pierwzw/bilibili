@@ -17,7 +17,7 @@ public class T2 {
 	RegisterServiceImpl registerService;
 	
 	@RequestMapping("registertest.sf")
-	public String web3(){
+	public String web3()  {
 		
 		System.out.println("测试是否进入此方法");
 		UserEntity user = new UserEntity();

@@ -6,11 +6,15 @@ import com.sf.entity.UserEntity;
 import com.sf.service.Update_login_password_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author zhongweiwu
  */
 @Service
+//@Transactional(propagation=Propagation.REQUIRED,rollbackFor=Exception.class,timeout=1,isolation=Isolation.DEFAULT)
 public class Update_login_password_Service_Impl implements Update_login_password_Service {
 
 

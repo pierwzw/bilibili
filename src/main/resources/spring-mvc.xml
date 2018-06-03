@@ -10,8 +10,11 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-	<!-- 配置扫描的包 -->
-	<context:component-scan base-package="com.sf.*"></context:component-scan>
+	<!-- 配置扫描的包, exclude使事务起作用 -->
+	<context:component-scan base-package="com.sf.*">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
 
 	<!-- 这个是注解驱动 -->
 	<mvc:annotation-driven />

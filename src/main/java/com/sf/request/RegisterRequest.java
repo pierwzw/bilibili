@@ -19,7 +19,7 @@ public class RegisterRequest {
 	RegisterServiceImpl registerService;
 
 	@RequestMapping("register.sf")
-	public String web3(UserEntity user, HttpServletRequest request,String yanzheng) {
+	public String web3(UserEntity user, HttpServletRequest request,String yanzheng)  {
 		// System.out.println(user.getuserEmail());
 		// System.out.println("测试是否进入此方法");
 

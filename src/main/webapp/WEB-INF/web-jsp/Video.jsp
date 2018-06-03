@@ -319,7 +319,7 @@ var slider = function(){
 					<a class="fl" href=""><img src="<%=request.getContextPath()%>${messagelist.messageHand}" alt="" width="70px";height="70px" /></a>
 					<p>${messagelist.message}</p>
 					<br>
-					<p style="color: red;">留言者:<a href="" style="color: darkgoldenrod;text-decoration:none;">&nbsp;${messagelist.messageuserName}</a><span style="color: blue;">&nbsp;&nbsp;&nbsp;留言时间:${messagelist.messageTime}</span></p>
+					<p style="color: red;">留言者:<a href="" style="color: darkgoldenrod;text-decoration:none;">&nbsp;${messagelist.messageUserName}</a><span style="color: blue;">&nbsp;&nbsp;&nbsp;留言时间:${messagelist.messageTime}</span></p>
 				</li>
 			</c:forEach>	
 			</ul>
@@ -386,7 +386,7 @@ var slider = function(){
 							<c:forEach items="${messagelist}" var="messagelist">
 							<div class="story">
 							<div class="opbtn"></div>
-							<p class="story_t">${messagelist.messageuserName}<span style="margin-left: 85%;">
+							<p class="story_t">${messagelist.messageUserName}<span style="margin-left: 85%;">
 							<button type="button" value="查看留言" id="huifu">查看回复</button>   <button type="button" value="查看留言" id="liuyan">我要留言</button></span>
 							
 							</p>
